@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   Activity,
   BotMessageSquare,
+  Clipboard,
   FolderClock,
   MessageSquare,
   Users,
@@ -40,6 +41,13 @@ const features = [
     color: "text-green-500",
   },
   {
+    title: "Homework",
+    description: "View and track assignments.",
+    icon: Clipboard,
+    href: "/dashboard/homework",
+    color: "text-yellow-500",
+  },
+  {
     title: "Parent-Teacher Chat",
     description: "Communicate directly with teachers.",
     icon: MessageSquare,
@@ -60,7 +68,7 @@ export default function DashboardPage() {
         </p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
         {features.map((feature) => (
           <Card key={feature.title} className="hover:shadow-lg transition-shadow duration-300">
             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
