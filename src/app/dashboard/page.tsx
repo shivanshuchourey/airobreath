@@ -2,7 +2,7 @@ import Link from "next/link";
 import {
   Activity,
   BotMessageSquare,
-  FileText,
+  FolderClock,
   MessageSquare,
   Users,
   Video,
@@ -33,10 +33,10 @@ const features = [
     color: "text-blue-500",
   },
   {
-    title: "Digital Whiteboard",
-    description: "Access and download class notes.",
-    icon: FileText,
-    href: "/dashboard/whiteboard",
+    title: "Class Recordings",
+    description: "Access and review past class sessions.",
+    icon: FolderClock,
+    href: "/dashboard/recordings",
     color: "text-green-500",
   },
   {

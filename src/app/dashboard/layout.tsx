@@ -9,6 +9,7 @@ import {
   BotMessageSquare,
   MessageSquare,
   LogOut,
+  FolderClock
 } from "lucide-react";
 
 import {
@@ -30,7 +31,7 @@ import { Button } from "@/components/ui/button";
 const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/dashboard/streaming", icon: Video, label: "Live Stream" },
-  { href: "/dashboard/whiteboard", icon: Clipboard, label: "Whiteboard" },
+  { href: "/dashboard/recordings", icon: FolderClock, label: "Recordings" },
   { href: "/dashboard/notes", icon: BotMessageSquare, label: "AI Notes" },
   { href: "/dashboard/chat", icon: MessageSquare, label: "Chat" },
 ];
@@ -57,7 +58,7 @@ export default function DashboardLayout({
               <SidebarMenuItem key={item.href}>
                 <SidebarMenuButton
                   asChild
-                  isActive={pathname === item.href}
+                  isActive={pathname.startsWith(item.href) && (item.href === "/" ? pathname === "/" : true)}
                   tooltip={{ children: item.label }}
                 >
                   <Link href={item.href}>
