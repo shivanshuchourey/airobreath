@@ -11,11 +11,11 @@ export const NoteSnapLogo = (props: SVGProps<SVGSVGElement>) => (
     strokeLinejoin="round"
     {...props}
   >
-    <path d="M12 4L4 8l8 4 8-4-8-4z" fill="hsl(var(--primary))" />
+    <path d="M12 4L4 8l8 4 8-4-8-4z" fill="hsl(var(--accent))" />
     <path d="M4 12l8 4 8-4" />
     <path d="M4 16l8 4 8-4" />
     <path d="M20 10.5v4.5" />
     <path d="M12 20V10" />
-    <circle cx="12" cy="10" r="2" fill="hsl(var(--accent))" stroke="hsl(var(--background))" />
+    <circle cx="12" cy="10" r="2" fill="hsl(var(--primary))" stroke="hsl(var(--background))" />
   </svg>
 );

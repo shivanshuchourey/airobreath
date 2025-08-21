@@ -30,7 +30,7 @@ export default function LoginPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
       <div className="flex flex-col items-center text-center mb-8">
-        <NoteSnapLogo className="h-16 w-16 text-primary" />
+        <NoteSnapLogo className="h-16 w-16 text-accent" />
         <h1 className="text-4xl font-bold font-headline mt-4 text-foreground">
           NoteSnap
         </h1>

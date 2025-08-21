@@ -81,7 +81,7 @@ export default function ChatPage() {
               {messages.map((msg, index) => (
                 <div key={index} className={`flex items-end gap-2 ${msg.from === 'parent' ? 'justify-end' : 'justify-start'}`}>
                   {msg.from === 'teacher' && <Avatar className="h-8 w-8"><AvatarImage src="https://placehold.co/40x40.png" data-ai-hint="person man" /><AvatarFallback>A</AvatarFallback></Avatar>}
-                  <div className={`rounded-lg px-4 py-2 max-w-xs lg:max-w-md ${msg.from === 'parent' ? 'bg-primary text-primary-foreground' : 'bg-card'}`}>
+                  <div className={`rounded-lg px-4 py-2 max-w-xs lg:max-w-md ${msg.from === 'parent' ? 'bg-accent text-accent-foreground' : 'bg-card'}`}>
                     <p className="text-sm">{msg.text}</p>
                     <p className="text-xs opacity-70 text-right mt-1">{msg.time}</p>
                   </div>

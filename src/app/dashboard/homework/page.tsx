@@ -61,7 +61,7 @@ export default function HomeworkPage() {
                   <TableCell>{hw.assignment}</TableCell>
                   <TableCell>{hw.dueDate}</TableCell>
                   <TableCell className="text-right">
-                    <Badge variant={hw.status === 'Completed' ? 'default' : 'secondary'} className={hw.status === 'Completed' ? 'bg-green-600/20 text-green-400 border-green-600/40' : 'bg-yellow-600/20 text-yellow-400 border-yellow-600/40'}>
+                    <Badge variant={hw.status === 'Completed' ? 'default' : 'secondary'} className={hw.status === 'Completed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}>
                       {hw.status}
                     </Badge>
                   </TableCell>

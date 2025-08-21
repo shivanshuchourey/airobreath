@@ -76,7 +76,7 @@ export default function RecordingsPage() {
                     {Object.entries(subjects).map(([subject, details]) => (
                       <div
                         key={subject}
-                        className="p-4 rounded-lg bg-secondary/50 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+                        className="p-4 rounded-lg bg-secondary flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
                       >
                         <div>
                           <p className="font-semibold text-base">{subject}</p>
@@ -95,7 +95,7 @@ export default function RecordingsPage() {
                             </Button>
                           </Link>
                            <Link href="/dashboard/notes">
-                            <Button size="sm">
+                            <Button size="sm" className="bg-accent text-accent-foreground hover:bg-accent/90">
                               <BotMessageSquare className="mr-2 h-4 w-4" />
                               AI Notes
                             </Button>

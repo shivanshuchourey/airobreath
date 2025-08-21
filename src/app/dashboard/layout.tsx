@@ -49,7 +49,7 @@ export default function DashboardLayout({
       <Sidebar>
         <SidebarHeader>
           <div className="flex items-center gap-2">
-            <NoteSnapLogo className="w-8 h-8 text-primary" />
+            <NoteSnapLogo className="w-8 h-8 text-accent" />
             <span className="text-lg font-semibold">NoteSnap</span>
           </div>
         </SidebarHeader>
@@ -94,7 +94,7 @@ export default function DashboardLayout({
         <div className="p-4 md:p-6 lg:p-8">
           <header className="flex items-center justify-between md:hidden mb-4">
              <Link href="/dashboard" className="flex items-center gap-2">
-                <NoteSnapLogo className="w-7 h-7 text-primary" />
+                <NoteSnapLogo className="w-7 h-7 text-accent" />
                 <span className="text-md font-semibold">NoteSnap</span>
               </Link>
               <SidebarTrigger />

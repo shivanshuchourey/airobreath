@@ -82,7 +82,7 @@ export default function DashboardPage() {
                 {feature.description}
               </p>
               <Link href={feature.href}>
-                <Button variant="outline" size="sm" className="mt-4 w-full">
+                <Button variant="secondary" size="sm" className="mt-4 w-full">
                   Go to {feature.title}
                 </Button>
               </Link>

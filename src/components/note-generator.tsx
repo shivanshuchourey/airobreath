@@ -84,7 +84,7 @@ export function NoteGenerator() {
         </div>
       </div>
       
-      <Button onClick={handleGenerateNotes} disabled={isLoading || !file} size="lg">
+      <Button onClick={handleGenerateNotes} disabled={isLoading || !file} size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
         {isLoading ? (
           <>
             <Loader2 className="mr-2 h-4 w-4 animate-spin" />
