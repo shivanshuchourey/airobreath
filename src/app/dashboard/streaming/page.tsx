@@ -1,3 +1,6 @@
+
+"use client";
+
 import Image from "next/image";
 import { Camera, Maximize, Mic, MonitorSpeaker, Users, Video } from "lucide-react";
 import {
@@ -9,8 +12,39 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import React, { useEffect, useRef, useState } from "react";
+import { useToast } from "@/hooks/use-toast";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+
 
 export default function StreamingPage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [hasCameraPermission, setHasCameraPermission] = useState(false);
+  const { toast } = useToast();
+
+  useEffect(() => {
+    const getCameraPermission = async () => {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        setHasCameraPermission(true);
+
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+        }
+      } catch (error) {
+        console.error("Error accessing camera:", error);
+        setHasCameraPermission(false);
+        toast({
+          variant: "destructive",
+          title: "Camera Access Denied",
+          description: "Please enable camera permissions in your browser settings to use this app.",
+        });
+      }
+    };
+
+    getCameraPermission();
+  }, [toast]);
+
   return (
     <div className="flex flex-col gap-8">
       <div>
@@ -37,19 +71,21 @@ export default function StreamingPage() {
             </CardHeader>
             <CardContent>
               <div className="aspect-video w-full bg-slate-900 rounded-lg overflow-hidden relative">
-                <Image
-                  src="https://placehold.co/1280x720.png"
-                  alt="Live stream from classroom"
-                  layout="fill"
-                  objectFit="cover"
-                  data-ai-hint="classroom teacher"
-                />
+                <video ref={videoRef} className="w-full aspect-video rounded-md" autoPlay muted playsInline />
                  <div className="absolute bottom-4 right-4 flex items-center gap-2">
                     <Button size="icon" variant="secondary">
                       <Maximize className="h-5 w-5" />
                     </Button>
                   </div>
               </div>
+              { !hasCameraPermission && (
+                  <Alert variant="destructive" className="mt-4">
+                    <AlertTitle>Camera Access Required</AlertTitle>
+                    <AlertDescription>
+                      Please allow camera access in your browser settings to display the live video feed.
+                    </AlertDescription>
+                  </Alert>
+              )}
             </CardContent>
           </Card>
         </div>
@@ -101,3 +137,4 @@ export default function StreamingPage() {
     </div>
   );
 }
+
