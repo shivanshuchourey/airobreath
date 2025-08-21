@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   Activity,
   ArrowRight,
+  BookOpenCheck,
   BotMessageSquare,
   Clipboard,
   FolderClock,
@@ -24,6 +25,7 @@ import {
   ClassRecordingsIcon,
   HomeworkIcon,
   ParentTeacherChatIcon,
+  TuitionClassesIcon,
 } from "@/components/feature-icons";
 import { Badge } from "@/components/ui/badge";
 
@@ -63,6 +65,13 @@ const features = [
     href: "/dashboard/chat",
     color: "from-purple-400 to-purple-600",
   },
+  {
+    title: "Tuition Classes",
+    description: "Manage and view extra classes.",
+    Icon: TuitionClassesIcon,
+    href: "/dashboard/tuition",
+    color: "from-pink-400 to-pink-600",
+  },
 ];
 
 const todaySchedule = [
@@ -78,14 +87,14 @@ export default function DashboardPage() {
     <div className="flex flex-col gap-8">
       <div>
         <h1 className="text-3xl font-bold tracking-tight">
-          Welcome Back, Jane!
+          Student Dashboard
         </h1>
         <p className="text-muted-foreground">
           Here's a summary of your child's day.
         </p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {features.map((feature) => (
            <Link href={feature.href} key={feature.title} className="group">
             <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">

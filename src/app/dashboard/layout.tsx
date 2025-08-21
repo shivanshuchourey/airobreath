@@ -9,7 +9,8 @@ import {
   BotMessageSquare,
   MessageSquare,
   LogOut,
-  FolderClock
+  FolderClock,
+  BookOpenCheck
 } from "lucide-react";
 
 import {
@@ -35,6 +36,7 @@ const navItems = [
   { href: "/dashboard/notes", icon: BotMessageSquare, label: "AI Notes" },
   { href: "/dashboard/homework", icon: Clipboard, label: "Homework" },
   { href: "/dashboard/chat", icon: MessageSquare, label: "Chat" },
+  { href: "/dashboard/tuition", icon: BookOpenCheck, label: "Tuition" },
 ];
 
 export default function DashboardLayout({
