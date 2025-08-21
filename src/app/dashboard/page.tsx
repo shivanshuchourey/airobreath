@@ -1,6 +1,7 @@
 import Link from "next/link";
 import {
   Activity,
+  ArrowRight,
   BotMessageSquare,
   Clipboard,
   FolderClock,
@@ -17,44 +18,60 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import {
+  LiveClassroomIcon,
+  AIStudyNotesIcon,
+  ClassRecordingsIcon,
+  HomeworkIcon,
+  ParentTeacherChatIcon,
+} from "@/components/feature-icons";
+import { Badge } from "@/components/ui/badge";
 
 const features = [
   {
     title: "Live Classroom",
     description: "Watch your child's class in real-time.",
-    icon: Video,
+    Icon: LiveClassroomIcon,
     href: "/dashboard/streaming",
-    color: "text-red-500",
+    color: "from-red-400 to-red-600",
   },
   {
     title: "AI Study Notes",
     description: "Generate notes from class recordings.",
-    icon: BotMessageSquare,
+    Icon: AIStudyNotesIcon,
     href: "/dashboard/notes",
-    color: "text-blue-500",
+    color: "from-blue-400 to-blue-600",
   },
   {
     title: "Class Recordings",
     description: "Access and review past class sessions.",
-    icon: FolderClock,
+    Icon: ClassRecordingsIcon,
     href: "/dashboard/recordings",
-    color: "text-green-500",
+    color: "from-green-400 to-green-600",
   },
   {
     title: "Homework",
     description: "View and track assignments.",
-    icon: Clipboard,
+    Icon: HomeworkIcon,
     href: "/dashboard/homework",
-    color: "text-yellow-500",
+    color: "from-yellow-400 to-yellow-600",
   },
   {
     title: "Parent-Teacher Chat",
     description: "Communicate directly with teachers.",
-    icon: MessageSquare,
+    Icon: ParentTeacherChatIcon,
     href: "/dashboard/chat",
-    color: "text-purple-500",
+    color: "from-purple-400 to-purple-600",
   },
 ];
+
+const todaySchedule = [
+    { time: "9:00 AM", subject: "Math - Algebra", status: "Finished" },
+    { time: "10:15 AM", subject: "Science - Photosynthesis", status: "Finished" },
+    { time: "11:30 AM", subject: "Recess", status: "Ongoing" },
+    { time: "1:00 PM", subject: "History - The Roman Empire", status: "Upcoming" },
+    { time: "2:15 PM", subject: "English - Verb Tenses", status: "Upcoming" },
+]
 
 export default function DashboardPage() {
   return (
@@ -70,74 +87,87 @@ export default function DashboardPage() {
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
         {features.map((feature) => (
-          <Card key={feature.title} className="hover:shadow-lg transition-shadow duration-300">
-            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-              <CardTitle className="text-sm font-medium">
-                {feature.title}
-              </CardTitle>
-              <feature.icon className={`h-5 w-5 ${feature.color}`} />
-            </CardHeader>
-            <CardContent>
-              <p className="text-xs text-muted-foreground h-10">
-                {feature.description}
-              </p>
-              <Link href={feature.href}>
-                <Button variant="secondary" size="sm" className="mt-4 w-full">
-                  Go to {feature.title}
-                </Button>
-              </Link>
-            </CardContent>
-          </Card>
+           <Link href={feature.href} key={feature.title} className="group">
+            <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <CardContent className="p-4 flex flex-col items-center text-center">
+                 <div className={`p-4 rounded-full bg-gradient-to-br ${feature.color}`}>
+                   <feature.Icon className="h-8 w-8 text-white" />
+                 </div>
+                <p className="mt-4 font-semibold text-base group-hover:text-primary transition-colors">{feature.title}</p>
+                <p className="text-xs text-muted-foreground mt-1 h-10">
+                  {feature.description}
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
         ))}
       </div>
 
-      <div className="grid gap-6 lg:grid-cols-2">
-        <Card>
+      <div className="grid gap-6 lg:grid-cols-3">
+        <Card className="lg:col-span-2">
           <CardHeader>
-            <CardTitle>Recent Activity</CardTitle>
+            <CardTitle>Today's Schedule</CardTitle>
             <CardDescription>
-              Updates on your child's activities and attendance.
+              A look at your child's classes for today.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
-              <div className="flex items-center">
-                <Activity className="h-5 w-5 mr-3" />
-                <p className="text-sm">
-                  Attended <span className="font-semibold">Math Class</span> at
-                  9:00 AM.
-                </p>
-              </div>
-              <div className="flex items-center">
-                <Users className="h-5 w-5 mr-3" />
-                <p className="text-sm">
-                  Participated in{" "}
-                  <span className="font-semibold">Group Project</span>.
-                </p>
-              </div>
+              {todaySchedule.map(item => (
+                <div key={item.subject} className="flex items-center justify-between p-3 rounded-lg bg-secondary/50">
+                    <div className="flex items-center gap-4">
+                        <p className="font-semibold text-primary w-20">{item.time}</p>
+                        <p className="text-sm">{item.subject}</p>
+                    </div>
+                    <Badge variant={item.status === 'Finished' ? 'default' : item.status === 'Ongoing' ? 'secondary' : 'outline'}>
+                        {item.status}
+                    </Badge>
+                </div>
+              ))}
             </div>
           </CardContent>
         </Card>
-        <Card>
-          <CardHeader>
-            <CardTitle>Upcoming Events</CardTitle>
-            <CardDescription>
-              Don't miss out on important school events.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-4">
-              <div className="flex items-center">
-                <p className="text-sm font-semibold w-24">Oct 25</p>
-                <p className="text-sm">Parent-Teacher Meeting</p>
-              </div>
-              <div className="flex items-center">
-                <p className="text-sm font-semibold w-24">Nov 5</p>
-                <p className="text-sm">Annual Sports Day</p>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+        
+        <div className="space-y-6">
+            <Card>
+              <CardHeader>
+                <CardTitle>Quick Actions</CardTitle>
+                 <CardDescription>Common tasks, one click away.</CardDescription>
+              </CardHeader>
+              <CardContent className="flex flex-col gap-2">
+                <Button variant="outline" asChild>
+                    <Link href="/dashboard/chat">
+                        <MessageSquare className="mr-2"/> Send a message
+                    </Link>
+                </Button>
+                 <Button variant="outline" asChild>
+                    <Link href="/dashboard/homework">
+                        <Clipboard className="mr-2"/> Check Homework
+                    </Link>
+                </Button>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader>
+                <CardTitle>Upcoming Events</CardTitle>
+                <CardDescription>
+                  Don't miss out on important school events.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm">Parent-Teacher Meeting</p>
+                    <p className="text-sm font-semibold">Oct 25</p>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <p className="text-sm">Annual Sports Day</p>
+                    <p className="text-sm font-semibold">Nov 5</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+        </div>
       </div>
     </div>
   );
