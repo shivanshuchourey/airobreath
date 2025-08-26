@@ -121,3 +121,42 @@ export const TuitionClassesIcon = (props: SVGProps<SVGSVGElement>) => (
         <path d="M2 12l10 5 10-5" />
     </svg>
 );
+
+export const VideosIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="24" 
+    height="24" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M2 12.38a1.5 1.5 0 0 0-.82 1.25V18a2 2 0 0 0 2 2h17.64a2 2 0 0 0 2-2v-4.37a1.5 1.5 0 0 0-.82-1.25L13 7.15a1.46 1.46 0 0 0-1.66 0L2 12.38z"/>
+    <path d="M15.5 9.5 12 7l-3.5 2.5"/>
+    <path d="M22 13.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7.5"/>
+  </svg>
+);
+
+export const GamesIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="24" 
+    height="24" 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round"
+    {...props}
+    >
+    <path d="M6 12h12"/>
+    <path d="M12 6v12"/>
+    <path d="M17.1 6.9a9 9 0 1 0-10.2 10.2"/>
+    <path d="M17.1 17.1a9 9 0 0 0-10.2-10.2"/>
+  </svg>
+);

@@ -26,6 +26,8 @@ import {
   HomeworkIcon,
   ParentTeacherChatIcon,
   TuitionClassesIcon,
+  VideosIcon,
+  GamesIcon
 } from "@/components/feature-icons";
 import { Badge } from "@/components/ui/badge";
 
@@ -72,6 +74,20 @@ const features = [
     href: "/dashboard/tuition",
     color: "from-pink-400 to-pink-600",
   },
+  {
+    title: "Videos",
+    description: "Watch educational videos.",
+    Icon: VideosIcon,
+    href: "/dashboard/videos",
+    color: "from-orange-400 to-orange-600",
+  },
+  {
+    title: "Games",
+    description: "Play fun, educational games.",
+    Icon: GamesIcon,
+    href: "/dashboard/games",
+    color: "from-teal-400 to-teal-600",
+  },
 ];
 
 const todaySchedule = [
@@ -94,7 +110,7 @@ export default function DashboardPage() {
         </p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {features.map((feature) => (
            <Link href={feature.href} key={feature.title} className="group">
             <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
