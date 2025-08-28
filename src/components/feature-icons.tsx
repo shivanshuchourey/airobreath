@@ -160,3 +160,63 @@ export const GamesIcon = (props: SVGProps<SVGSVGElement>) => (
     <path d="M17.1 17.1a9 9 0 0 0-10.2-10.2"/>
   </svg>
 );
+
+export const SportsIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg 
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 4.09a2 2 0 0 0 1.66 0l8.58-4.09a1 1 0 0 0 0-1.83Z"/>
+    <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/>
+    <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/>
+  </svg>
+);
+
+export const ArtsIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M17.5 2.5a2.5 2.5 0 0 1 0 5 .5.5 0 0 0-1 0 .5.5 0 0 1-1 0 .5.5 0 0 0-1-1 .5.5 0 0 1 0-1 .5.5 0 0 0 0-1 .5.5 0 0 1 1-1 .5.5 0 0 0 1 0 .5.5 0 0 1 1 0z"/>
+    <path d="M12 2.5a2.5 2.5 0 0 1 0 5 .5.5 0 0 0-1 0 .5.5 0 0 1-1 0 .5.5 0 0 0-1-1 .5.5 0 0 1 0-1 .5.5 0 0 0 0-1 .5.5 0 0 1 1-1 .5.5 0 0 0 1 0 .5.5 0 0 1 1 0z"/>
+    <path d="M6.5 2.5a2.5 2.5 0 0 1 0 5 .5.5 0 0 0-1 0 .5.5 0 0 1-1 0 .5.5 0 0 0-1-1 .5.5 0 0 1 0-1 .5.5 0 0 0 0-1 .5.5 0 0 1 1-1 .5.5 0 0 0 1 0 .5.5 0 0 1 1 0z"/>
+    <path d="M12 11.5v10"/>
+    <path d="M6.5 11.5v10"/>
+    <path d="M17.5 11.5v10"/>
+  </svg>
+);
+
+export const MusicIcon = (props: SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M9 18V5l12-2v13"/>
+    <circle cx="6" cy="18" r="3"/>
+    <circle cx="18" cy="16" r="3"/>
+  </svg>
+);

@@ -12,7 +12,10 @@ import {
   FolderClock,
   BookOpenCheck,
   PlaySquare,
-  Gamepad2
+  Gamepad2,
+  Trophy,
+  Paintbrush,
+  Music,
 } from "lucide-react";
 
 import {
@@ -41,6 +44,9 @@ const navItems = [
   { href: "/dashboard/tuition", icon: BookOpenCheck, label: "Tuition" },
   { href: "/dashboard/videos", icon: PlaySquare, label: "Videos" },
   { href: "/dashboard/games", icon: Gamepad2, label: "Games" },
+  { href: "/dashboard/sports", icon: Trophy, label: "Sports" },
+  { href: "/dashboard/arts", icon: Paintbrush, label: "Arts" },
+  { href: "/dashboard/music", icon: Music, label: "Music" },
 ];
 
 export default function DashboardLayout({

@@ -27,7 +27,10 @@ import {
   ParentTeacherChatIcon,
   TuitionClassesIcon,
   VideosIcon,
-  GamesIcon
+  GamesIcon,
+  SportsIcon,
+  ArtsIcon,
+  MusicIcon,
 } from "@/components/feature-icons";
 import { Badge } from "@/components/ui/badge";
 
@@ -88,6 +91,27 @@ const features = [
     href: "/dashboard/games",
     color: "from-teal-400 to-teal-600",
   },
+  {
+    title: "Sports",
+    description: "Explore sports academies and activities.",
+    Icon: SportsIcon,
+    href: "/dashboard/sports",
+    color: "from-indigo-400 to-indigo-600",
+  },
+  {
+    title: "Arts",
+    description: "Discover creative arts and craft classes.",
+    Icon: ArtsIcon,
+    href: "/dashboard/arts",
+    color: "from-lime-400 to-lime-600",
+  },
+  {
+    title: "Music",
+    description: "Find music lessons and schools.",
+    Icon: MusicIcon,
+    href: "/dashboard/music",
+    color: "from-rose-400 to-rose-600",
+  },
 ];
 
 const todaySchedule = [
@@ -111,7 +135,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {features.map((feature) => (
+        {features.slice(0, 11).map((feature) => ( // Show all 11 features
            <Link href={feature.href} key={feature.title} className="group">
             <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardContent className="p-4 flex flex-col items-center text-center">
