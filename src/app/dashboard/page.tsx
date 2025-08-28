@@ -31,6 +31,7 @@ import {
   SportsIcon,
   ArtsIcon,
   MusicIcon,
+  ScreenTimeIcon,
 } from "@/components/feature-icons";
 import { Badge } from "@/components/ui/badge";
 
@@ -76,6 +77,13 @@ const features = [
     Icon: TuitionClassesIcon,
     href: "/dashboard/tuition",
     color: "from-pink-400 to-pink-600",
+  },
+   {
+    title: "Screen Time",
+    description: "Set daily limits and monitor usage.",
+    Icon: ScreenTimeIcon,
+    href: "/dashboard/screentime",
+    color: "from-cyan-400 to-cyan-600",
   },
   {
     title: "Videos",
@@ -135,7 +143,7 @@ export default function DashboardPage() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {features.slice(0, 11).map((feature) => ( // Show all 11 features
+        {features.map((feature) => ( 
            <Link href={feature.href} key={feature.title} className="group">
             <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
               <CardContent className="p-4 flex flex-col items-center text-center">
