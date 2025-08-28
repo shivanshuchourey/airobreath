@@ -212,7 +212,8 @@ export const ArtsIcon = (props: SVGProps<SVGSVGElement>) => (
     {...props}
   >
     <path d="M17.5 2.5a2.5 2.5 0 0 1 0 5 .5.5 0 0 0-1 0 .5.5 0 0 1-1 0 .5.5 0 0 0-1-1 .5.5 0 0 1 0-1 .5.5 0 0 0 0-1 .5.5 0 0 1 1-1 .5.5 0 0 0 1 0 .5.5 0 0 1 1 0z"/>
-    <path d="M12 2.5a2.5 2.5 0 0 1 0 5 .5.5 0 0 0-1 0 .5.5 0 0 1-1 0 .5.5 0 0 0-1-1 .5.5 0 0 1 0-1 .5.5 0 0 0 0-1 .5.5 0 0 1 1-1 .5.5 0 0 0 1 0 .5.5 0 0 1 1 0z"/>
+    <path d="M12 2.5a2.5 2.5 0 0 1 0 5 .5.5 0 0 0-1 0 .5.5 0 0 1-1 0 .5.5 0 0 0-1-1 .5.5 0 0 1 0-1 .5.5 0 0 0 0-1 .5.5
+     0 0 1 1-1 .5.5 0 0 0 1 0 .5.5 0 0 1 1 0z"/>
     <path d="M6.5 2.5a2.5 2.5 0 0 1 0 5 .5.5 0 0 0-1 0 .5.5 0 0 1-1 0 .5.5 0 0 0-1-1 .5.5 0 0 1 0-1 .5.5 0 0 0 0-1 .5.5 0 0 1 1-1 .5.5 0 0 0 1 0 .5.5 0 0 1 1 0z"/>
     <path d="M12 11.5v10"/>
     <path d="M6.5 11.5v10"/>
@@ -237,4 +238,22 @@ export const MusicIcon = (props: SVGProps<SVGSVGElement>) => (
     <circle cx="6" cy="18" r="3"/>
     <circle cx="18" cy="16" r="3"/>
   </svg>
+);
+
+export const VideosIcon = (props: SVGProps<SVGSVGElement>) => (
+    <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        {...props}
+    >
+        <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.934a.5.5 0 0 0-.777-.416L16 11" />
+        <rect x="2" y="6" width="14" height="12" rx="2" />
+    </svg>
 );

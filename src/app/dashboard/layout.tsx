@@ -44,6 +44,7 @@ const navItems = [
   { href: "/dashboard/homework", icon: Clipboard, label: "Homework" },
   { href: "/dashboard/chat", icon: MessageSquare, label: "Chat" },
   { href: "/dashboard/tuition", icon: BookOpenCheck, label: "Tuition" },
+  { href: "/dashboard/videos", icon: PlaySquare, label: "Videos" },
   { href: "/dashboard/screentime", icon: Hourglass, label: "Screen Time" },
   { href: "/dashboard/content-filter", icon: Filter, label: "Content Filter" },
   { href: "/dashboard/games", icon: Gamepad2, label: "Games" },

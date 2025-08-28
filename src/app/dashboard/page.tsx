@@ -7,6 +7,7 @@ import {
   Clipboard,
   FolderClock,
   MessageSquare,
+  PlaySquare,
   Users,
   Video,
 } from "lucide-react";
@@ -32,6 +33,7 @@ import {
   ArtsIcon,
   MusicIcon,
   ScreenTimeIcon,
+  VideosIcon,
 } from "@/components/feature-icons";
 import { Badge } from "@/components/ui/badge";
 
@@ -78,7 +80,14 @@ const features = [
     href: "/dashboard/tuition",
     color: "from-pink-400 to-pink-600",
   },
-   {
+  {
+    title: "Videos",
+    description: "Watch educational videos.",
+    Icon: VideosIcon,
+    href: "/dashboard/videos",
+    color: "from-orange-400 to-orange-600",
+  },
+  {
     title: "Screen Time",
     description: "Set daily limits and monitor usage.",
     Icon: ScreenTimeIcon,
@@ -90,7 +99,7 @@ const features = [
     description: "Manage and filter content.",
     Icon: ContentFilterIcon,
     href: "/dashboard/content-filter",
-    color: "from-orange-400 to-orange-600",
+    color: "from-red-400 to-red-600",
   },
   {
     title: "Games",
