@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Paintbrush, Palette, PenTool } from "lucide-react";
+import { Paintbrush, Brush, PenSquare } from "lucide-react";
 import {
   Card,
   CardContent,

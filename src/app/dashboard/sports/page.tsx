@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Trophy, Dribbble, Target } from "lucide-react";
+import { Trophy, Futbol, Target } from "lucide-react";
 import {
   Card,
   CardContent,
