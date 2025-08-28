@@ -34,6 +34,7 @@ import {
   MusicIcon,
   ScreenTimeIcon,
   VideosIcon,
+  MomentsIcon,
 } from "@/components/feature-icons";
 import { Badge } from "@/components/ui/badge";
 
@@ -58,6 +59,13 @@ const features = [
     Icon: ClassRecordingsIcon,
     href: "/dashboard/recordings",
     color: "from-green-400 to-green-600",
+  },
+  {
+    title: "Moments",
+    description: "Capture and share short video stories.",
+    Icon: MomentsIcon,
+    href: "/dashboard/moments",
+    color: "from-yellow-400 to-yellow-600",
   },
   {
     title: "Homework",
@@ -219,7 +227,7 @@ export default function DashboardPage() {
                 <CardDescription>
                   Don't miss out on important school events.
                 </CardDescription>
-              </CardHeader>
+              </HCardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
