@@ -1,3 +1,4 @@
+
 import Link from "next/link";
 import {
   Activity,
@@ -227,7 +228,7 @@ export default function DashboardPage() {
                 <CardDescription>
                   Don't miss out on important school events.
                 </CardDescription>
-              </HCardHeader>
+              </CardHeader>
               <CardContent>
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
