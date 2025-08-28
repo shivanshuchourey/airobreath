@@ -26,7 +26,7 @@ import {
   HomeworkIcon,
   ParentTeacherChatIcon,
   TuitionClassesIcon,
-  VideosIcon,
+  ContentFilterIcon,
   GamesIcon,
   SportsIcon,
   ArtsIcon,
@@ -86,10 +86,10 @@ const features = [
     color: "from-cyan-400 to-cyan-600",
   },
   {
-    title: "Videos",
-    description: "Watch educational videos.",
-    Icon: VideosIcon,
-    href: "/dashboard/videos",
+    title: "Content Filter",
+    description: "Manage and filter content.",
+    Icon: ContentFilterIcon,
+    href: "/dashboard/content-filter",
     color: "from-orange-400 to-orange-600",
   },
   {

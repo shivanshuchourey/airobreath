@@ -142,7 +142,7 @@ export const ScreenTimeIcon = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-export const VideosIcon = (props: SVGProps<SVGSVGElement>) => (
+export const ContentFilterIcon = (props: SVGProps<SVGSVGElement>) => (
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
     width="24" 
@@ -155,9 +155,7 @@ export const VideosIcon = (props: SVGProps<SVGSVGElement>) => (
     strokeLinejoin="round"
     {...props}
   >
-    <path d="M2 12.38a1.5 1.5 0 0 0-.82 1.25V18a2 2 0 0 0 2 2h17.64a2 2 0 0 0 2-2v-4.37a1.5 1.5 0 0 0-.82-1.25L13 7.15a1.46 1.46 0 0 0-1.66 0L2 12.38z"/>
-    <path d="M15.5 9.5 12 7l-3.5 2.5"/>
-    <path d="M22 13.5V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v7.5"/>
+    <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
   </svg>
 );
 

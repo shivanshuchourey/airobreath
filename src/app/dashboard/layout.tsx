@@ -17,6 +17,7 @@ import {
   Paintbrush,
   Music,
   Hourglass,
+  Filter,
 } from "lucide-react";
 
 import {
@@ -44,7 +45,7 @@ const navItems = [
   { href: "/dashboard/chat", icon: MessageSquare, label: "Chat" },
   { href: "/dashboard/tuition", icon: BookOpenCheck, label: "Tuition" },
   { href: "/dashboard/screentime", icon: Hourglass, label: "Screen Time" },
-  { href: "/dashboard/videos", icon: PlaySquare, label: "Videos" },
+  { href: "/dashboard/content-filter", icon: Filter, label: "Content Filter" },
   { href: "/dashboard/games", icon: Gamepad2, label: "Games" },
   { href: "/dashboard/sports", icon: Trophy, label: "Sports" },
   { href: "/dashboard/arts", icon: Paintbrush, label: "Arts" },
