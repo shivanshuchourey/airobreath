@@ -165,7 +165,7 @@ export default function DashboardPage() {
     const videoRef = useRef<HTMLVideoElement>(null);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const [hasCameraPermission, setHasCameraPermission] = useState(false);
-    const [isRecording, setIsRecording] = useState(isRecording);
+    const [isRecording, setIsRecording] = useState(false);
     const [recordedVideo, setRecordedVideo] = useState<string | null>(null);
     const [videoBlob, setVideoBlob] = useState<Blob | null>(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -280,7 +280,7 @@ export default function DashboardPage() {
          <div className="lg:col-span-2 space-y-6">
              <Card>
                 <CardHeader>
-                    <CardTitle className="flex items-center gap-2"><Heart /></CardTitle>
+                    <CardTitle className="flex items-center gap-2"><Heart />Recent Stories</CardTitle>
                     <CardDescription>A look back at your child's recent stories.</CardDescription>
                 </CardHeader>
                 <CardContent className="flex items-center gap-4 overflow-x-auto pb-4">
