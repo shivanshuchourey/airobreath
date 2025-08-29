@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -14,6 +15,7 @@ import {
   Loader2,
   MessageSquare,
   PlaySquare,
+  Plus,
   Send,
   Users,
   Video,
@@ -48,6 +50,7 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { generateMomentTitle } from "@/ai/flows/generate-moment-title";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const features = [
   {
@@ -152,16 +155,17 @@ const todaySchedule = [
 ];
 
 const stories = [
-    { title: "Fun time in the park!", time: "2h ago", image: "https://picsum.photos/300/500" },
-    { title: "Learning to draw", time: "5h ago", image: "https://picsum.photos/300/500" },
-    { title: "First day of school", time: "1d ago", image: "https://picsum.photos/300/500" },
+    { title: "Fun time in the park!", time: "2h ago", image: "https://picsum.photos/300/500", aiHint: "child playing" },
+    { title: "Learning to draw", time: "5h ago", image: "https://picsum.photos/300/500", aiHint: "child drawing" },
+    { title: "First day of school", time: "1d ago", image: "https://picsum.photos/300/500", aiHint: "child smiling" },
+    { title: "Soccer practice", time: "2d ago", image: "https://picsum.photos/300/500", aiHint: "child playing soccer" },
 ];
 
 export default function DashboardPage() {
     const videoRef = useRef<HTMLVideoElement>(null);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const [hasCameraPermission, setHasCameraPermission] = useState(false);
-    const [isRecording, setIsRecording] = useState(false);
+    const [isRecording, setIsRecording] = useState(isRecording);
     const [recordedVideo, setRecordedVideo] = useState<string | null>(null);
     const [videoBlob, setVideoBlob] = useState<Blob | null>(null);
     const [isLoading, setIsLoading] = useState(false);
@@ -272,97 +276,27 @@ export default function DashboardPage() {
         </p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {features.map((feature) => ( 
-           <Link href={feature.href} key={feature.title} className="group">
-            <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-4 flex flex-col items-center text-center">
-                 <div className={`p-4 rounded-full bg-gradient-to-br ${feature.color}`}>
-                   <feature.Icon className="h-8 w-8 text-white" />
-                 </div>
-                <p className="mt-4 font-semibold text-base group-hover:text-primary transition-colors">{feature.title}</p>
-                <p className="text-xs text-muted-foreground mt-1 h-10">
-                  {feature.description}
-                </p>
-              </CardContent>
-            </Card>
-          </Link>
-        ))}
-      </div>
-
-      <div className="grid gap-6 lg:grid-cols-3">
-        <div className="lg:col-span-2">
-            <Card>
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2"><Heart />Moments</CardTitle>
-                    <CardDescription>Capture and share short video stories.</CardDescription>
-                </CardHeader>
-                <CardContent>
-                    <div className="aspect-[9/16] w-full max-w-md mx-auto bg-slate-900 rounded-lg overflow-hidden relative">
-                        {recordedVideo ? (
-                            <video src={recordedVideo} className="w-full h-full object-cover" controls autoPlay loop />
-                        ) : (
-                            <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
-                        )}
-                        {!hasCameraPermission && !recordedVideo && (
-                            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 text-white">
-                                <VideoOff className="h-12 w-12 mb-4" />
-                                <p>Camera access is required</p>
-                            </div>
-                        )}
-                    </div>
-                </CardContent>
-                <CardFooter className="flex justify-center gap-4">
-                    {recordedVideo ? (
-                        <>
-                            <Button onClick={handleRetake} variant="outline" disabled={isLoading}>
-                                <Camera className="mr-2" /> Retake
-                            </Button>
-                            <Button onClick={handlePostStory} disabled={isLoading}>
-                                {isLoading ? (
-                                    <>
-                                        <Loader2 className="mr-2 animate-spin" /> Posting...
-                                    </>
-                                ) : (
-                                    <>
-                                        <Send className="mr-2" /> Post Story
-                                    </>
-                                )}
-                            </Button>
-                        </>
-                    ) : (
-                        <Button onClick={isRecording ? handleStopRecording : handleStartRecording} disabled={!hasCameraPermission} size="lg">
-                            {isRecording ? (
-                                <>
-                                    <VideoOff className="mr-2" /> Stop Recording
-                                </>
-                            ) : (
-                                <>
-                                    <Video className="mr-2" /> Start Recording
-                                </>
-                            )}
-                        </Button>
-                    )}
-                </CardFooter>
-            </Card>
-        </div>
-        
-        <div className="space-y-6">
+       <div className="grid gap-6 lg:grid-cols-3">
+         <div className="lg:col-span-2 space-y-6">
              <Card>
                 <CardHeader>
-                    <CardTitle>Recent Stories</CardTitle>
-                    <CardDescription>Watch previously posted moments.</CardDescription>
+                    <CardTitle className="flex items-center gap-2"><Heart /></CardTitle>
+                    <CardDescription>A look back at your child's recent stories.</CardDescription>
                 </CardHeader>
-                <CardContent className="space-y-4">
+                <CardContent className="flex items-center gap-4 overflow-x-auto pb-4">
+                     <div className="flex flex-col items-center gap-2 flex-shrink-0">
+                        <button className="h-16 w-16 rounded-full bg-muted flex items-center justify-center ring-2 ring-dashed ring-muted-foreground hover:bg-secondary transition-colors">
+                            <Plus className="h-8 w-8 text-muted-foreground" />
+                        </button>
+                        <span className="text-xs font-medium">Add Story</span>
+                    </div>
                    {stories.map(story => (
-                       <div key={story.title} className="flex items-center gap-4 p-2 rounded-lg hover:bg-secondary/50">
-                           <div className="w-16 h-24 rounded-md overflow-hidden ring-2 ring-pink-400 ring-offset-2 ring-offset-background">
-                                <img src={story.image} alt={story.title} className="w-full h-full object-cover" />
-                           </div>
-                           <div>
-                               <p className="font-semibold">{story.title}</p>
-                               <p className="text-xs text-muted-foreground">{story.time}</p>
-                           </div>
+                       <div key={story.title} className="flex flex-col items-center gap-2 flex-shrink-0 text-center w-20">
+                            <Avatar className="h-16 w-16 ring-2 ring-pink-400 ring-offset-2 ring-offset-background">
+                               <AvatarImage src={story.image} alt={story.title} data-ai-hint={story.aiHint} />
+                               <AvatarFallback>{story.title.charAt(0)}</AvatarFallback>
+                            </Avatar>
+                           <p className="text-xs font-medium truncate w-full">{story.title}</p>
                        </div>
                    ))}
                 </CardContent>
@@ -391,6 +325,78 @@ export default function DashboardPage() {
               </CardContent>
             </Card>
         </div>
+        
+        <div className="space-y-6">
+            <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2"><Camera />Capture a Moment</CardTitle>
+                    <CardDescription>Record a short 10s video of your child.</CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <div className="aspect-video w-full mx-auto bg-slate-900 rounded-lg overflow-hidden relative">
+                        {recordedVideo ? (
+                            <video src={recordedVideo} className="w-full h-full object-cover" controls autoPlay loop />
+                        ) : (
+                            <video ref={videoRef} className="w-full h-full object-cover" autoPlay muted playsInline />
+                        )}
+                        {!hasCameraPermission && !recordedVideo && (
+                            <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 text-white">
+                                <VideoOff className="h-12 w-12 mb-4" />
+                                <p>Camera access is required</p>
+                            </div>
+                        )}
+                         {isRecording && (
+                            <div className="absolute top-2 right-2 flex items-center gap-2 bg-red-600 text-white px-2 py-1 rounded-md text-xs">
+                                <div className="h-2 w-2 rounded-full bg-white animate-pulse"></div>
+                                REC
+                            </div>
+                         )}
+                    </div>
+                </CardContent>
+                <CardFooter className="flex justify-center gap-4">
+                    {recordedVideo ? (
+                        <>
+                            <Button onClick={handleRetake} variant="outline" disabled={isLoading}>
+                                <Camera className="mr-2" /> Retake
+                            </Button>
+                            <Button onClick={handlePostStory} disabled={isLoading}>
+                                {isLoading ? (
+                                    <>
+                                        <Loader2 className="mr-2 animate-spin" /> Posting...
+                                    </>
+                                ) : (
+                                    <>
+                                        <Send className="mr-2" /> Post
+                                    </>
+                                )}
+                            </Button>
+                        </>
+                    ) : (
+                        <Button onClick={isRecording ? handleStopRecording : handleStartRecording} disabled={!hasCameraPermission || isRecording} size="lg">
+                           <Video className="mr-2" /> Record
+                        </Button>
+                    )}
+                </CardFooter>
+            </Card>
+        </div>
+      </div>
+
+       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
+        {features.map((feature) => ( 
+           <Link href={feature.href} key={feature.title} className="group">
+            <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <CardContent className="p-4 flex flex-col items-center text-center">
+                 <div className={`p-3 rounded-full bg-gradient-to-br ${feature.color}`}>
+                   <feature.Icon className="h-7 w-7 text-white" />
+                 </div>
+                <p className="mt-3 font-semibold text-sm group-hover:text-primary transition-colors">{feature.title}</p>
+                <p className="text-xs text-muted-foreground mt-1 h-9">
+                  {feature.description}
+                </p>
+              </CardContent>
+            </Card>
+          </Link>
+        ))}
       </div>
     </div>
   );
