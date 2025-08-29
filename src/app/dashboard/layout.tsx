@@ -42,7 +42,6 @@ const navItems = [
   { href: "/dashboard/streaming", icon: Video, label: "Live Stream" },
   { href: "/dashboard/recordings", icon: FolderClock, label: "Recordings" },
   { href: "/dashboard/notes", icon: BotMessageSquare, label: "AI Notes" },
-  { href: "/dashboard/moments", icon: Heart, label: "Moments" },
   { href: "/dashboard/homework", icon: Clipboard, label: "Homework" },
   { href: "/dashboard/chat", icon: MessageSquare, label: "Chat" },
   { href: "/dashboard/tuition", icon: BookOpenCheck, label: "Tuition" },
