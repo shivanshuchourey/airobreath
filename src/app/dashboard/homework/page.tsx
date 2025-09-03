@@ -58,9 +58,9 @@ export default function HomeworkPage() {
               <TableBody>
                 {homeworkAssignments.map((hw) => (
                   <TableRow key={hw.assignment}>
-                    <TableCell className="font-medium">{hw.subject}</TableCell>
-                    <TableCell>{hw.assignment}</TableCell>
-                    <TableCell>{hw.dueDate}</TableCell>
+                    <TableCell className="font-medium whitespace-nowrap">{hw.subject}</TableCell>
+                    <TableCell className="whitespace-nowrap">{hw.assignment}</TableCell>
+                    <TableCell className="whitespace-nowrap">{hw.dueDate}</TableCell>
                     <TableCell className="text-right">
                       <Badge variant={hw.status === 'Completed' ? 'default' : 'secondary'} className={`whitespace-nowrap ${hw.status === 'Completed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
                         {hw.status}

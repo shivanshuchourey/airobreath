@@ -10,7 +10,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 
 const contacts = [
   { name: "Mr. Alan", subject: "Math Teacher", avatar: "https://placehold.co/40x40.png", aiHint: "person man" },
@@ -77,11 +76,11 @@ export default function ChatPage() {
               </div>
             </div>
             
-            <div className="flex-1 overflow-y-auto p-6 space-y-4 bg-secondary/30">
+            <div className="flex-1 overflow-y-auto p-4 sm:p-6 space-y-4 bg-secondary/30">
               {messages.map((msg, index) => (
                 <div key={index} className={`flex items-end gap-2 ${msg.from === 'parent' ? 'justify-end' : 'justify-start'}`}>
                   {msg.from === 'teacher' && <Avatar className="h-8 w-8"><AvatarImage src="https://placehold.co/40x40.png" data-ai-hint="person man" /><AvatarFallback>A</AvatarFallback></Avatar>}
-                  <div className={`rounded-lg px-4 py-2 max-w-xs ${msg.from === 'parent' ? 'bg-accent text-accent-foreground' : 'bg-card'}`}>
+                  <div className={`rounded-lg px-3 py-2 max-w-xs sm:px-4 ${msg.from === 'parent' ? 'bg-accent text-accent-foreground' : 'bg-card'}`}>
                     <p className="text-sm">{msg.text}</p>
                     <p className="text-xs opacity-70 text-right mt-1">{msg.time}</p>
                   </div>

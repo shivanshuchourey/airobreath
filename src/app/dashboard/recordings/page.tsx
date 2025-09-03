@@ -87,7 +87,7 @@ export default function RecordingsPage() {
                             {details.time}
                           </p>
                         </div>
-                        <div className="flex items-center gap-2 flex-shrink-0">
+                        <div className="flex items-center gap-2 flex-shrink-0 self-start sm:self-center">
                            <Link href="/dashboard/streaming">
                             <Button variant="outline" size="sm">
                               <PlayCircle className="mr-2 h-4 w-4" />

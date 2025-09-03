@@ -99,10 +99,10 @@ export default function DashboardLayout({
           <SidebarSeparator />
           <SidebarMenu>
              {secondaryNavItems.map((item) => (
-              <SidebarMenuItem key={item.href}>
+              <SidebarMenuItem key={item.label}>
                 <SidebarMenuButton
                   asChild
-                  isActive={pathname.startsWith(item.href) && (item.href === "/" ? pathname === "/" : true)}
+                  isActive={false}
                   tooltip={{ children: item.label }}
                 >
                   <Link href={item.href}>

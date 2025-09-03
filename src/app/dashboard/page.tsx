@@ -204,7 +204,7 @@ export default function DashboardPage() {
                         <p className="font-semibold text-primary sm:w-20">{item.time}</p>
                         <p className="text-sm">{item.subject}</p>
                     </div>
-                    <Badge variant={item.status === 'Finished' ? 'default' : item.status === 'Ongoing' ? 'secondary' : 'outline'} className="self-start sm:self-center">
+                    <Badge variant={item.status === 'Finished' ? 'default' : item.status === 'Ongoing' ? 'secondary' : 'outline'} className="self-start sm:self-center whitespace-nowrap">
                         {item.status}
                     </Badge>
                 </div>
