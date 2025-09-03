@@ -203,16 +203,16 @@ export default function DashboardPage() {
         </Card>
       </div>
 
-       <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
+       <div className="grid gap-4 grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7">
         {features.map((feature) => (
            <Link href={feature.href} key={feature.title} className="group">
             <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-3 flex flex-col items-center text-center">
-                 <div className={`p-2 rounded-full bg-gradient-to-br ${feature.color}`}>
-                   <feature.Icon className="h-6 w-6 text-white" />
+              <CardContent className="p-2 flex flex-col items-center text-center">
+                 <div className={`p-1.5 rounded-full bg-gradient-to-br ${feature.color}`}>
+                   <feature.Icon className="h-5 w-5 text-white" />
                  </div>
-                <p className="mt-2 font-semibold text-sm group-hover:text-primary transition-colors">{feature.title}</p>
-                <p className="text-xs text-muted-foreground mt-1 min-h-[2.25rem]">
+                <p className="mt-1.5 font-semibold text-xs group-hover:text-primary transition-colors">{feature.title}</p>
+                <p className="text-xs text-muted-foreground mt-0.5">
                   {feature.description}
                 </p>
               </CardContent>
