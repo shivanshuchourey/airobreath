@@ -19,7 +19,7 @@ export default function NotesPage() {
 
       <Card className="shadow-lg">
         <CardHeader>
-          <CardTitle>NoteSnap AI Generator</CardTitle>
+          <CardTitle>AI Note Generator</CardTitle>
           <CardDescription>
             Upload an audio or video file of a class lecture, and our AI will
             create a structured summary with key points for you.

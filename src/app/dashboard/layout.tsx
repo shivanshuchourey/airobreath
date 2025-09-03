@@ -33,7 +33,7 @@ import {
   SidebarInset,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import { NoteSnapLogo } from "@/components/icons";
+import { RainbowSchoolLogo } from "@/components/icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
@@ -66,8 +66,8 @@ export default function DashboardLayout({
       <Sidebar>
         <SidebarHeader>
           <div className="flex items-center gap-2">
-            <NoteSnapLogo className="w-8 h-8 text-accent" />
-            <span className="text-lg font-semibold">NoteSnap</span>
+            <RainbowSchoolLogo className="w-8 h-8 text-accent" />
+            <span className="text-lg font-semibold">The Rainbow School</span>
           </div>
         </SidebarHeader>
         <SidebarContent>
@@ -111,8 +111,8 @@ export default function DashboardLayout({
         <div className="p-4 md:p-6 lg:p-8">
           <header className="flex items-center justify-between md:hidden mb-4">
              <Link href="/dashboard" className="flex items-center gap-2">
-                <NoteSnapLogo className="w-7 h-7 text-accent" />
-                <span className="text-md font-semibold">NoteSnap</span>
+                <RainbowSchoolLogo className="w-7 h-7 text-accent" />
+                <span className="text-md font-semibold">The Rainbow School</span>
               </Link>
               <SidebarTrigger />
           </header>

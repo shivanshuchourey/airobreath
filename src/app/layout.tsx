@@ -3,8 +3,8 @@ import { Toaster } from "@/components/ui/toaster"
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'NoteSnap - Education & Safety Redefined',
-  description: 'NoteSnap: The Future of Learning, Today. Live classroom streaming, AI-powered tools, and seamless parent-teacher communication.',
+  title: 'The Rainbow School - Education & Safety Redefined',
+  description: 'The Rainbow School: The Future of Learning, Today. Live classroom streaming, AI-powered tools, and seamless parent-teacher communication.',
 };
 
 export default function RootLayout({
