@@ -35,14 +35,14 @@ export default function ChatPage() {
         </p>
       </div>
 
-      <Card className="h-[70vh] shadow-lg">
+      <Card className="h-[75vh] shadow-lg">
         <div className="grid grid-cols-1 md:grid-cols-3 h-full">
-          <div className="md:col-span-1 border-r">
+          <div className="md:col-span-1 border-r flex flex-col">
             <CardHeader>
               <CardTitle>Contacts</CardTitle>
               <CardDescription>Select a conversation to start chatting.</CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="flex-grow overflow-y-auto">
               <ul className="space-y-2">
                 {contacts.map((contact, index) => (
                   <li key={contact.name}>
@@ -81,7 +81,7 @@ export default function ChatPage() {
               {messages.map((msg, index) => (
                 <div key={index} className={`flex items-end gap-2 ${msg.from === 'parent' ? 'justify-end' : 'justify-start'}`}>
                   {msg.from === 'teacher' && <Avatar className="h-8 w-8"><AvatarImage src="https://placehold.co/40x40.png" data-ai-hint="person man" /><AvatarFallback>A</AvatarFallback></Avatar>}
-                  <div className={`rounded-lg px-4 py-2 max-w-xs lg:max-w-md ${msg.from === 'parent' ? 'bg-accent text-accent-foreground' : 'bg-card'}`}>
+                  <div className={`rounded-lg px-4 py-2 max-w-xs ${msg.from === 'parent' ? 'bg-accent text-accent-foreground' : 'bg-card'}`}>
                     <p className="text-sm">{msg.text}</p>
                     <p className="text-xs opacity-70 text-right mt-1">{msg.time}</p>
                   </div>
@@ -90,11 +90,11 @@ export default function ChatPage() {
               ))}
             </div>
 
-            <div className="p-4 border-t bg-card">
+            <div className="p-2 sm:p-4 border-t bg-card">
               <div className="relative">
-                <Input placeholder="Type a message..." className="pr-28" />
-                <div className="absolute right-2 top-1/2 -translate-y-1/2 flex items-center">
-                  <Button variant="ghost" size="icon"><Smile className="h-5 w-5 text-muted-foreground" /></Button>
+                <Input placeholder="Type a message..." className="pr-20 sm:pr-28" />
+                <div className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 flex items-center">
+                  <Button variant="ghost" size="icon" className="hidden sm:inline-flex"><Smile className="h-5 w-5 text-muted-foreground" /></Button>
                   <Button variant="ghost" size="icon"><Paperclip className="h-5 w-5 text-muted-foreground" /></Button>
                   <Button size="sm" className="bg-accent hover:bg-accent/90"><Send className="h-4 w-4" /></Button>
                 </div>

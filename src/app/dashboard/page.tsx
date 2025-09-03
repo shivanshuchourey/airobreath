@@ -165,58 +165,56 @@ export default function DashboardPage() {
         </p>
       </div>
 
-       <div className="grid gap-6 lg:grid-cols-3">
-         <div className="lg:col-span-3 space-y-6">
-             <Card>
-                <CardHeader>
-                    <CardTitle className="flex items-center gap-2"><Heart />Recent Stories</CardTitle>
-                    <CardDescription>A look back at your child's recent stories.</CardDescription>
-                </CardHeader>
-                <CardContent className="flex items-center gap-4 overflow-x-auto pb-4">
-                     <div className="flex flex-col items-center gap-2 flex-shrink-0">
-                        <button className="h-16 w-16 rounded-full bg-muted flex items-center justify-center ring-2 ring-dashed ring-muted-foreground hover:bg-secondary transition-colors">
-                            <Plus className="h-8 w-8 text-muted-foreground" />
-                        </button>
-                        <span className="text-xs font-medium">Add Story</span>
-                    </div>
-                   {stories.map(story => (
-                       <div key={story.title} className="flex flex-col items-center gap-2 flex-shrink-0 text-center w-20">
-                            <Avatar className="h-16 w-16 ring-2 ring-pink-400 ring-offset-2 ring-offset-background">
-                               <AvatarImage src={story.image} alt={story.title} data-ai-hint={story.aiHint} />
-                               <AvatarFallback>{story.title.charAt(0)}</AvatarFallback>
-                            </Avatar>
-                           <p className="text-xs font-medium truncate w-full">{story.title}</p>
-                       </div>
-                   ))}
-                </CardContent>
-            </Card>
-             <Card>
-              <CardHeader>
-                <CardTitle>Today's Schedule</CardTitle>
-                <CardDescription>
-                  A look at your child's classes for today.
-                </CardDescription>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-4">
-                  {todaySchedule.map(item => (
-                    <div key={item.subject} className="flex items-center justify-between p-3 rounded-lg bg-secondary/50">
-                        <div className="flex items-center gap-4">
-                            <p className="font-semibold text-primary w-20">{item.time}</p>
-                            <p className="text-sm">{item.subject}</p>
-                        </div>
-                        <Badge variant={item.status === 'Finished' ? 'default' : item.status === 'Ongoing' ? 'secondary' : 'outline'}>
-                            {item.status}
-                        </Badge>
-                    </div>
-                  ))}
+       <div className="space-y-6">
+         <Card>
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2"><Heart />Recent Stories</CardTitle>
+                <CardDescription>A look back at your child's recent stories.</CardDescription>
+            </CardHeader>
+            <CardContent className="flex items-center gap-4 overflow-x-auto pb-4">
+                 <div className="flex flex-col items-center gap-2 flex-shrink-0">
+                    <button className="h-16 w-16 rounded-full bg-muted flex items-center justify-center ring-2 ring-dashed ring-muted-foreground hover:bg-secondary transition-colors">
+                        <Plus className="h-8 w-8 text-muted-foreground" />
+                    </button>
+                    <span className="text-xs font-medium">Add Story</span>
                 </div>
-              </CardContent>
-            </Card>
-        </div>
+               {stories.map(story => (
+                   <div key={story.title} className="flex flex-col items-center gap-2 flex-shrink-0 text-center w-20">
+                        <Avatar className="h-16 w-16 ring-2 ring-pink-400 ring-offset-2 ring-offset-background">
+                           <AvatarImage src={story.image} alt={story.title} data-ai-hint={story.aiHint} />
+                           <AvatarFallback>{story.title.charAt(0)}</AvatarFallback>
+                        </Avatar>
+                       <p className="text-xs font-medium truncate w-full">{story.title}</p>
+                   </div>
+               ))}
+            </CardContent>
+        </Card>
+         <Card>
+          <CardHeader>
+            <CardTitle>Today's Schedule</CardTitle>
+            <CardDescription>
+              A look at your child's classes for today.
+            </CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              {todaySchedule.map(item => (
+                <div key={item.subject} className="flex flex-col sm:flex-row items-start sm:items-center justify-between p-3 rounded-lg bg-secondary/50 gap-2">
+                    <div className="flex items-center gap-4">
+                        <p className="font-semibold text-primary sm:w-20">{item.time}</p>
+                        <p className="text-sm">{item.subject}</p>
+                    </div>
+                    <Badge variant={item.status === 'Finished' ? 'default' : item.status === 'Ongoing' ? 'secondary' : 'outline'} className="self-start sm:self-center">
+                        {item.status}
+                    </Badge>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
       </div>
 
-       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-7">
+       <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
         {features.map((feature) => ( 
            <Link href={feature.href} key={feature.title} className="group">
             <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">

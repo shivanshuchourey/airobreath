@@ -45,30 +45,32 @@ export default function HomeworkPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead>Subject</TableHead>
-                <TableHead>Assignment</TableHead>
-                <TableHead>Due Date</TableHead>
-                <TableHead className="text-right">Status</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {homeworkAssignments.map((hw) => (
-                <TableRow key={hw.assignment}>
-                  <TableCell className="font-medium">{hw.subject}</TableCell>
-                  <TableCell>{hw.assignment}</TableCell>
-                  <TableCell>{hw.dueDate}</TableCell>
-                  <TableCell className="text-right">
-                    <Badge variant={hw.status === 'Completed' ? 'default' : 'secondary'} className={hw.status === 'Completed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}>
-                      {hw.status}
-                    </Badge>
-                  </TableCell>
+          <div className="overflow-x-auto">
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Subject</TableHead>
+                  <TableHead>Assignment</TableHead>
+                  <TableHead>Due Date</TableHead>
+                  <TableHead className="text-right">Status</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {homeworkAssignments.map((hw) => (
+                  <TableRow key={hw.assignment}>
+                    <TableCell className="font-medium">{hw.subject}</TableCell>
+                    <TableCell>{hw.assignment}</TableCell>
+                    <TableCell>{hw.dueDate}</TableCell>
+                    <TableCell className="text-right">
+                      <Badge variant={hw.status === 'Completed' ? 'default' : 'secondary'} className={`whitespace-nowrap ${hw.status === 'Completed' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
+                        {hw.status}
+                      </Badge>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
         </CardContent>
       </Card>
     </div>
