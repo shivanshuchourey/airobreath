@@ -4,27 +4,17 @@
 import Link from "next/link";
 import React from "react";
 import {
-  ArrowRight,
-  BookOpenCheck,
-  BotMessageSquare,
-  Clipboard,
-  FolderClock,
   Heart,
-  MessageSquare,
-  PlaySquare,
   Plus,
-  Users,
 } from "lucide-react";
 
 import {
   Card,
   CardContent,
   CardDescription,
-  CardFooter,
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import {
   LiveClassroomIcon,
   AIStudyNotesIcon,
@@ -39,7 +29,6 @@ import {
   MusicIcon,
   ScreenTimeIcon,
   VideosIcon,
-  MomentsIcon,
 } from "@/components/feature-icons";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -215,15 +204,15 @@ export default function DashboardPage() {
       </div>
 
        <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-7">
-        {features.map((feature) => ( 
+        {features.map((feature) => (
            <Link href={feature.href} key={feature.title} className="group">
             <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-4 flex flex-col items-center text-center">
-                 <div className={`p-3 rounded-full bg-gradient-to-br ${feature.color}`}>
-                   <feature.Icon className="h-7 w-7 text-white" />
+              <CardContent className="p-3 flex flex-col items-center text-center">
+                 <div className={`p-2 rounded-full bg-gradient-to-br ${feature.color}`}>
+                   <feature.Icon className="h-6 w-6 text-white" />
                  </div>
-                <p className="mt-3 font-semibold text-sm group-hover:text-primary transition-colors">{feature.title}</p>
-                <p className="text-xs text-muted-foreground mt-1 h-9">
+                <p className="mt-2 font-semibold text-sm group-hover:text-primary transition-colors">{feature.title}</p>
+                <p className="text-xs text-muted-foreground mt-1 min-h-[2.25rem]">
                   {feature.description}
                 </p>
               </CardContent>
