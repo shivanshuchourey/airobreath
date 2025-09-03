@@ -18,7 +18,9 @@ import {
   Music,
   Hourglass,
   Filter,
-  Heart,
+  User,
+  HelpCircle,
+  Info,
 } from "lucide-react";
 
 import {
@@ -32,6 +34,7 @@ import {
   SidebarFooter,
   SidebarInset,
   SidebarTrigger,
+  SidebarSeparator,
 } from "@/components/ui/sidebar";
 import { RainbowSchoolLogo } from "@/components/icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -54,6 +57,12 @@ const navItems = [
   { href: "/dashboard/music", icon: Music, label: "Music" },
 ];
 
+const secondaryNavItems = [
+  { href: "/dashboard", icon: User, label: "Edit Profile" },
+  { href: "/dashboard", icon: HelpCircle, label: "Help Center" },
+  { href: "/dashboard", icon: Info, label: "About Us" },
+];
+
 export default function DashboardLayout({
   children,
 }: {
@@ -73,6 +82,23 @@ export default function DashboardLayout({
         <SidebarContent>
           <SidebarMenu>
             {navItems.map((item) => (
+              <SidebarMenuItem key={item.href}>
+                <SidebarMenuButton
+                  asChild
+                  isActive={pathname.startsWith(item.href) && (item.href === "/dashboard" ? pathname === "/dashboard" : true)}
+                  tooltip={{ children: item.label }}
+                >
+                  <Link href={item.href}>
+                    <item.icon />
+                    <span>{item.label}</span>
+                  </Link>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
+            ))}
+          </SidebarMenu>
+          <SidebarSeparator />
+          <SidebarMenu>
+             {secondaryNavItems.map((item) => (
               <SidebarMenuItem key={item.href}>
                 <SidebarMenuButton
                   asChild
