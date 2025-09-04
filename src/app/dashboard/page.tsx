@@ -179,7 +179,7 @@ export default function DashboardPage() {
             </CardContent>
         </Card>
          <Card>
-          <CardHeader>
+          <CardHeader className="text-center">
             <CardTitle>Today's Schedule</CardTitle>
             <CardDescription>
               A look at your child's classes for today.
