@@ -1,13 +1,31 @@
+
 import Image from "next/image";
-import { Trophy, Futbol, Target, Medal, Dumbbell, Swimmer, Waves, PersonStanding } from "lucide-react";
+import { Trophy, PlayCircle, Star, Target, Shield, Dumbbell, Zap, BarChart } from "lucide-react";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
+  CardFooter,
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { Progress } from "@/components/ui/progress";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+
+const videoLessons = [
+  { sport: "Cricket", title: "Mastering the Cover Drive", image: "https://picsum.photos/seed/cricket/600/400", aiHint: "cricket batting" },
+  { sport: "Football", title: "Perfecting Your Free Kick", image: "https://picsum.photos/seed/football/600/400", aiHint: "soccer ball" },
+  { sport: "Swimming", title: "Freestyle Breathing Technique", image: "https://picsum.photos/seed/swimming/600/400", aiHint: "swimming lane" },
+  { sport: "Yoga", title: "Beginner's Sun Salutation", image: "https://picsum.photos/seed/yoga/600/400", aiHint: "yoga pose" },
+];
+
+const leaderboard = [
+    { name: "Alex D.", points: 2450, avatar: "https://placehold.co/40x40.png", aiHint: "person boy" },
+    { name: "Priya S.", points: 2300, avatar: "https://placehold.co/40x40.png", aiHint: "person girl" },
+    { name: "Tom H.", points: 2150, avatar: "https://placehold.co/40x40.png", aiHint: "person boy" },
+]
 
 const academies = [
   {
@@ -46,60 +64,163 @@ const academies = [
     image: "https://picsum.photos/seed/track/600/400",
     aiHint: "running track"
   },
-  {
-    name: "Dragon Fist Martial Arts",
-    specialty: "Discipline and skill in Karate, Judo, and Taekwondo.",
-    image: "https://picsum.photos/seed/martialarts/600/400",
-    aiHint: "karate kick"
-  },
-  {
-    name: "Home Run Baseball League",
-    specialty: "Batting, pitching, and fielding for young athletes.",
-    image: "https://picsum.photos/seed/baseball/600/400",
-    aiHint: "baseball game"
-  },
-  {
-    name: "Spike City Volleyball",
-    specialty: "Learn to serve, set, and spike like a pro.",
-    image: "https://picsum.photos/seed/volleyball/600/400",
-    aiHint: "volleyball net"
-  },
 ];
+
 
 export default function SportsPage() {
   return (
     <div className="flex flex-col gap-8">
       <div>
         <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2">
-          <Trophy className="h-8 w-8" />
-          Sports Academies
+          <Trophy className="h-8 w-8 text-primary" />
+          Sports Dashboard
         </h1>
         <p className="text-muted-foreground">
-          Find the perfect sports program for your child.
+          Your child's gateway to athletic excellence.
         </p>
       </div>
+      
+      <div className="grid gap-8 lg:grid-cols-3">
+        <div className="lg:col-span-2 space-y-8">
+            <Card className="bg-gradient-to-tr from-accent/80 to-accent">
+                <CardHeader>
+                    <CardTitle className="text-accent-foreground">Weekly Challenge</CardTitle>
+                    <CardDescription className="text-accent-foreground/80">Complete 100 skips in under 2 minutes!</CardDescription>
+                </CardHeader>
+                <CardContent className="flex items-center justify-between">
+                    <div className="text-accent-foreground">
+                        <p className="text-sm">Reward</p>
+                        <p className="text-lg font-bold flex items-center gap-1"><Star className="h-5 w-5 text-yellow-300"/> 500 Points</p>
+                    </div>
+                    <Button variant="secondary" className="bg-accent-foreground text-accent hover:bg-accent-foreground/90">
+                        <Zap className="mr-2 h-4 w-4"/>
+                        Start Challenge
+                    </Button>
+                </CardContent>
+            </Card>
 
-      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {academies.map((academy) => (
-          <Card key={academy.name} className="flex flex-col overflow-hidden">
-            <Image
-              src={academy.image}
-              alt={academy.name}
-              width={600}
-              height={400}
-              className="w-full h-48 object-cover"
-              data-ai-hint={academy.aiHint}
-            />
-            <CardHeader>
-              <CardTitle>{academy.name}</CardTitle>
-              <CardDescription>{academy.specialty}</CardDescription>
-            </CardHeader>
-            <CardContent className="flex-grow flex items-end">
-              <Button>View Details</Button>
-            </CardContent>
-          </Card>
-        ))}
+            <Card>
+                <CardHeader>
+                    <CardTitle>Video Lessons</CardTitle>
+                    <CardDescription>Beginner to advanced tutorials by experts.</CardDescription>
+                </CardHeader>
+                <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    {videoLessons.map(lesson => (
+                        <div key={lesson.title} className="relative group overflow-hidden rounded-lg">
+                             <Image
+                                src={lesson.image}
+                                alt={lesson.title}
+                                width={600}
+                                height={400}
+                                className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                                data-ai-hint={lesson.aiHint}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
+                                <Badge className="w-fit mb-2">{lesson.sport}</Badge>
+                                <h3 className="font-semibold text-white text-lg">{lesson.title}</h3>
+                                <Button variant="secondary" size="sm" className="mt-2 w-fit">
+                                    <PlayCircle className="mr-2 h-4 w-4"/> Watch Now
+                                </Button>
+                            </div>
+                        </div>
+                    ))}
+                </CardContent>
+            </Card>
+
+            <Card className="border-primary/50 border-2">
+                 <CardHeader className="text-center">
+                    <div className="w-fit mx-auto bg-primary/10 p-3 rounded-full mb-2">
+                        <Target className="h-8 w-8 text-primary"/>
+                    </div>
+                    <CardTitle>AI Pose Detection</CardTitle>
+                    <CardDescription>Get real-time feedback on your form and posture. Correct your batting stance, yoga poses, and more!</CardDescription>
+                 </CardHeader>
+                 <CardFooter>
+                    <Button variant="outline" className="w-full" disabled>
+                        Coming Soon
+                    </Button>
+                 </CardFooter>
+            </Card>
+
+        </div>
+        <div className="space-y-8">
+             <Card>
+                <CardHeader>
+                    <CardTitle>Your Progress</CardTitle>
+                </CardHeader>
+                <CardContent className="space-y-4">
+                    <div className="text-center">
+                        <p className="text-4xl font-bold">12,500</p>
+                        <p className="text-muted-foreground">Total Points</p>
+                    </div>
+                    <div>
+                        <div className="flex justify-between mb-1">
+                            <p className="font-medium">Level 5</p>
+                            <p className="text-muted-foreground">500/1000 to Level 6</p>
+                        </div>
+                        <Progress value={50}/>
+                    </div>
+                    <div className="flex justify-around pt-2">
+                        <div className="text-center"><Badge variant="secondary" className="text-lg">🥉x5</Badge><p className="text-xs mt-1">Bronze</p></div>
+                        <div className="text-center"><Badge variant="secondary" className="text-lg">🥈x2</Badge><p className="text-xs mt-1">Silver</p></div>
+                        <div className="text-center"><Badge variant="secondary" className="text-lg">🥇x1</Badge><p className="text-xs mt-1">Gold</p></div>
+                    </div>
+                </CardContent>
+            </Card>
+             <Card>
+                <CardHeader>
+                    <CardTitle className="flex items-center gap-2"><BarChart/>Leaderboard</CardTitle>
+                    <CardDescription>Weekly top performers</CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-3">
+                    {leaderboard.map((player, index) => (
+                        <div key={player.name} className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <span className="font-bold w-4">{index + 1}</span>
+                                <Avatar className="h-9 w-9">
+                                    <AvatarImage src={player.avatar} alt={player.name} data-ai-hint={player.aiHint} />
+                                    <AvatarFallback>{player.name.charAt(0)}</AvatarFallback>
+                                </Avatar>
+                                <div>
+                                    <p className="font-semibold">{player.name}</p>
+                                    <p className="text-sm text-muted-foreground">{player.points} pts</p>
+                                </div>
+                            </div>
+                            {index === 0 && <Trophy className="h-5 w-5 text-yellow-500"/>}
+                        </div>
+                    ))}
+                </CardContent>
+            </Card>
+        </div>
       </div>
+       <Card>
+          <CardHeader>
+            <CardTitle>Browse Academies & Live Classes</CardTitle>
+            <CardDescription>Find certified coaches and professional training programs.</CardDescription>
+          </CardHeader>
+          <CardContent className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {academies.map((academy) => (
+              <Card key={academy.name} className="flex flex-col overflow-hidden">
+                <Image
+                  src={academy.image}
+                  alt={academy.name}
+                  width={600}
+                  height={400}
+                  className="w-full h-48 object-cover"
+                  data-ai-hint={academy.aiHint}
+                />
+                <CardHeader>
+                  <CardTitle>{academy.name}</CardTitle>
+                  <CardDescription>{academy.specialty}</CardDescription>
+                </CardHeader>
+                <CardContent className="flex-grow flex items-end">
+                  <Button>View Details & Book Class</Button>
+                </CardContent>
+              </Card>
+            ))}
+          </CardContent>
+        </Card>
     </div>
   );
 }
+
