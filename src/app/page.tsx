@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { AtSign, Lock } from "lucide-react";
 
@@ -66,10 +67,16 @@ export default function LoginPage() {
               </div>
             </div>
           </CardContent>
-          <CardFooter>
+          <CardFooter className="flex-col items-stretch gap-4">
             <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
               Sign In
             </Button>
+            <div className="text-center text-sm">
+                New to The Rainbow School?{' '}
+                <Link href="/dashboard/registration" className="underline text-accent">
+                    Sign up for a new account
+                </Link>
+            </div>
           </CardFooter>
         </form>
       </Card>
