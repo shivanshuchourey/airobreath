@@ -22,6 +22,7 @@ import {
   User,
   HelpCircle,
   Info,
+  UserPlus,
 } from "lucide-react";
 
 import {
@@ -43,6 +44,7 @@ import { Button } from "@/components/ui/button";
 
 const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
+  { href: "/dashboard/registration", icon: UserPlus, label: "Registration" },
   { href: "/dashboard/streaming", icon: Video, label: "Live Stream" },
   { href: "/dashboard/recordings", icon: FolderClock, label: "Recordings" },
   { href: "/dashboard/notes", icon: BotMessageSquare, label: "AI Notes" },
