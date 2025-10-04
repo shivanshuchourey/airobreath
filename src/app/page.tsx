@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -31,11 +32,11 @@ export default function LoginPage() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
       <div className="flex flex-col items-center text-center mb-8">
-        <RainbowSchoolLogo className="h-16 w-16 text-accent" />
+        <RainbowSchoolLogo className="h-20 w-auto" />
         <h1 className="text-4xl font-bold font-headline mt-4 text-foreground">
-          The Rainbow School
+          RAINBOW SCHOOL
         </h1>
-        <p className="text-muted-foreground">Education & Safety Redefined</p>
+        <p className="text-muted-foreground tracking-widest">PLAY LEARN & GROW</p>
       </div>
       <Card className="w-full max-w-sm shadow-xl">
         <CardHeader>

@@ -78,8 +78,8 @@ export default function DashboardLayout({
       <Sidebar>
         <SidebarHeader>
           <div className="flex items-center gap-2">
-            <RainbowSchoolLogo className="w-8 h-8 text-accent" />
-            <span className="text-lg font-semibold">The Rainbow School</span>
+            <RainbowSchoolLogo className="w-8 h-8" />
+            <span className="text-lg font-semibold">Rainbow School</span>
           </div>
         </SidebarHeader>
         <SidebarContent>
@@ -141,7 +141,7 @@ export default function DashboardLayout({
           <header className="flex items-center justify-between md:hidden mb-4">
              <Link href="/dashboard" className="flex items-center gap-2">
                 <RainbowSchoolLogo className="w-7 h-7 text-accent" />
-                <span className="text-md font-semibold">The Rainbow School</span>
+                <span className="text-md font-semibold">Rainbow School</span>
               </Link>
               <SidebarTrigger />
           </header>
