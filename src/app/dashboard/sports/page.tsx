@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Trophy, Futbol, Target } from "lucide-react";
+import { Trophy, Futbol, Target, Medal, Dumbbell, Swimmer, Waves, PersonStanding } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -13,20 +13,56 @@ const academies = [
   {
     name: "Elite Soccer Academy",
     specialty: "Professional soccer training for all ages.",
-    image: "https://picsum.photos/600/400",
+    image: "https://picsum.photos/seed/soccer/600/400",
     aiHint: "soccer field"
   },
   {
     name: "Hoops Dynasty Basketball",
     specialty: "Dribbling, shooting, and team play skills.",
-    image: "https://picsum.photos/600/400",
+    image: "https://picsum.photos/seed/basketball/600/400",
     aiHint: "basketball court"
   },
   {
     name: "Grand Slam Tennis Club",
     specialty: "From beginners to advanced tennis players.",
-    image: "https://picsum.photos/600/400",
+    image: "https://picsum.photos/seed/tennis/600/400",
     aiHint: "tennis court"
+  },
+  {
+    name: "Aqua Warriors Swim School",
+    specialty: "Competitive swimming and water safety.",
+    image: "https://picsum.photos/seed/swimming/600/400",
+    aiHint: "swimming pool"
+  },
+  {
+    name: "Flip & Fly Gymnastics",
+    specialty: "Artistic and rhythmic gymnastics programs.",
+    image: "https://picsum.photos/seed/gymnastics/600/400",
+    aiHint: "gymnast balance"
+  },
+  {
+    name: "Speedsters Track Club",
+    specialty: "Sprinting, long distance, and field events.",
+    image: "https://picsum.photos/seed/track/600/400",
+    aiHint: "running track"
+  },
+  {
+    name: "Dragon Fist Martial Arts",
+    specialty: "Discipline and skill in Karate, Judo, and Taekwondo.",
+    image: "https://picsum.photos/seed/martialarts/600/400",
+    aiHint: "karate kick"
+  },
+  {
+    name: "Home Run Baseball League",
+    specialty: "Batting, pitching, and fielding for young athletes.",
+    image: "https://picsum.photos/seed/baseball/600/400",
+    aiHint: "baseball game"
+  },
+  {
+    name: "Spike City Volleyball",
+    specialty: "Learn to serve, set, and spike like a pro.",
+    image: "https://picsum.photos/seed/volleyball/600/400",
+    aiHint: "volleyball net"
   },
 ];
 
