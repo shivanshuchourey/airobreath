@@ -35,6 +35,13 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const features = [
   {
+    title: "Sports",
+    description: "Explore sports academies and activities.",
+    Icon: SportsIcon,
+    href: "/dashboard/sports",
+    color: "from-indigo-400 to-indigo-600",
+  },
+  {
     title: "Live Classroom",
     description: "Watch your child's class in real-time.",
     Icon: LiveClassroomIcon,
@@ -103,13 +110,6 @@ const features = [
     Icon: GamesIcon,
     href: "/dashboard/games",
     color: "from-teal-400 to-teal-600",
-  },
-  {
-    title: "Sports",
-    description: "Explore sports academies and activities.",
-    Icon: SportsIcon,
-    href: "/dashboard/sports",
-    color: "from-indigo-400 to-indigo-600",
   },
   {
     title: "Arts",
@@ -203,16 +203,16 @@ export default function DashboardPage() {
         </Card>
       </div>
 
-       <div className="grid gap-4 grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7">
+       <div className="flex gap-4 overflow-x-auto pb-4">
         {features.map((feature) => (
-           <Link href={feature.href} key={feature.title} className="group">
+           <Link href={feature.href} key={feature.title} className="group flex-shrink-0 w-28">
             <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-              <CardContent className="p-2 flex flex-col items-center text-center">
-                 <div className={`p-1.5 rounded-full bg-gradient-to-br ${feature.color}`}>
-                   <feature.Icon className="h-5 w-5 text-white" />
+              <CardContent className="p-3 flex flex-col items-center text-center">
+                 <div className={`p-2.5 rounded-full bg-gradient-to-br ${feature.color}`}>
+                   <feature.Icon className="h-8 w-8 text-white" />
                  </div>
-                <p className="mt-1.5 font-semibold text-xs group-hover:text-primary transition-colors">{feature.title}</p>
-                <p className="text-xs text-muted-foreground mt-0.5">
+                <p className="mt-2 font-semibold text-sm group-hover:text-primary transition-colors">{feature.title}</p>
+                <p className="text-xs text-muted-foreground mt-0.5 h-8">
                   {feature.description}
                 </p>
               </CardContent>
