@@ -61,7 +61,7 @@ const navItems = [
 ];
 
 const secondaryNavItems = [
-  { href: "/dashboard", icon: User, label: "Edit Profile" },
+  { href: "/dashboard/profile", icon: User, label: "Edit Profile" },
   { href: "/dashboard", icon: HelpCircle, label: "Help Center" },
   { href: "/dashboard", icon: Info, label: "About Us" },
 ];
@@ -105,7 +105,7 @@ export default function DashboardLayout({
               <SidebarMenuItem key={item.label}>
                 <SidebarMenuButton
                   asChild
-                  isActive={false}
+                  isActive={pathname.startsWith(item.href) && item.href !== "/dashboard"}
                   tooltip={{ children: item.label }}
                 >
                   <Link href={item.href}>
