@@ -1,6 +1,10 @@
 
+"use client";
+
 import Image from "next/image";
-import { Trophy, PlayCircle, Star, Target, Shield, Dumbbell, Zap, BarChart } from "lucide-react";
+import { Trophy, PlayCircle, Star, Target, Shield, Dumbbell, Zap, BarChart, ChevronDown } from "lucide-react";
+import Link from "next/link";
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -13,12 +17,30 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+
+
+const allSports = [
+    "All Sports", "Cricket", "Football", "Swimming", "Yoga", "Badminton", "Basketball", "Gymnastics", "Tennis", "Martial Arts", "Athletics", "Volleyball", "Baseball"
+];
 
 const videoLessons = [
   { sport: "Cricket", title: "Mastering the Cover Drive", image: "https://picsum.photos/seed/cricket/600/400", aiHint: "cricket batting" },
   { sport: "Football", title: "Perfecting Your Free Kick", image: "https://picsum.photos/seed/football/600/400", aiHint: "soccer ball" },
   { sport: "Swimming", title: "Freestyle Breathing Technique", image: "https://picsum.photos/seed/swimming/600/400", aiHint: "swimming lane" },
   { sport: "Yoga", title: "Beginner's Sun Salutation", image: "https://picsum.photos/seed/yoga/600/400", aiHint: "yoga pose" },
+  { sport: "Badminton", title: "Advanced Smash Techniques", image: "https://picsum.photos/seed/badminton/600/400", aiHint: "badminton racket" },
+  { sport: "Basketball", title: "Mastering the Jump Shot", image: "https://picsum.photos/seed/basketball-shot/600/400", aiHint: "basketball player" },
+  { sport: "Martial Arts", title: "Basic Karate Stances", image: "https://picsum.photos/seed/karate/600/400", aiHint: "karate pose" },
+  { sport: "Tennis", title: "Improving Your Serve", image: "https://picsum.photos/seed/tennis-serve/600/400", aiHint: "tennis player serving" },
 ];
 
 const leaderboard = [
@@ -32,52 +54,123 @@ const academies = [
     name: "Elite Soccer Academy",
     specialty: "Professional soccer training for all ages.",
     image: "https://picsum.photos/seed/soccer/600/400",
-    aiHint: "soccer field"
+    aiHint: "soccer field",
+    sport: "Football"
   },
   {
     name: "Hoops Dynasty Basketball",
     specialty: "Dribbling, shooting, and team play skills.",
     image: "https://picsum.photos/seed/basketball/600/400",
-    aiHint: "basketball court"
+    aiHint: "basketball court",
+    sport: "Basketball"
   },
   {
     name: "Grand Slam Tennis Club",
     specialty: "From beginners to advanced tennis players.",
     image: "https://picsum.photos/seed/tennis/600/400",
-    aiHint: "tennis court"
+    aiHint: "tennis court",
+    sport: "Tennis"
   },
   {
     name: "Aqua Warriors Swim School",
     specialty: "Competitive swimming and water safety.",
-    image: "https://picsum.photos/seed/swimming/600/400",
-    aiHint: "swimming pool"
+    image: "https://picsum.photos/seed/swimming-pool/600/400",
+    aiHint: "swimming pool",
+    sport: "Swimming"
   },
   {
     name: "Flip & Fly Gymnastics",
     specialty: "Artistic and rhythmic gymnastics programs.",
     image: "https://picsum.photos/seed/gymnastics/600/400",
-    aiHint: "gymnast balance"
+    aiHint: "gymnast balance",
+    sport: "Gymnastics"
   },
   {
     name: "Speedsters Track Club",
     specialty: "Sprinting, long distance, and field events.",
     image: "https://picsum.photos/seed/track/600/400",
-    aiHint: "running track"
+    aiHint: "running track",
+    sport: "Athletics"
+  },
+  {
+    name: "Cricket Champions Academy",
+    specialty: "Batting, bowling, and fielding masterclass.",
+    image: "https://picsum.photos/seed/cricket-pitch/600/400",
+    aiHint: "cricket game",
+    sport: "Cricket"
+  },
+  {
+    name: "Shuttle Masters Badminton",
+    specialty: "Learn smashes, drops, and net play.",
+    image: "https://picsum.photos/seed/badminton-court/600/400",
+    aiHint: "badminton court",
+    sport: "Badminton"
+  },
+  {
+    name: "Dragon Dojo Martial Arts",
+    specialty: "Discipline and skill in Karate & Taekwondo.",
+    image: "https://picsum.photos/seed/dojo/600/400",
+    aiHint: "martial arts dojo",
+    sport: "Martial Arts"
+  },
+   {
+    name: "Spike Zone Volleyball",
+    specialty: "Serving, setting, and spiking clinics.",
+    image: "https://picsum.photos/seed/volleyball/600/400",
+    aiHint: "volleyball net",
+    sport: "Volleyball"
+  },
+  {
+    name: "Home Run Baseball Club",
+    specialty: "Pitching, hitting, and fielding fundamentals.",
+    image: "https://picsum.photos/seed/baseball/600/400",
+    aiHint: "baseball diamond",
+    sport: "Baseball"
   },
 ];
 
 
 export default function SportsPage() {
+  const [selectedSport, setSelectedSport] = useState("All Sports");
+
+  const filteredLessons = videoLessons.filter(lesson => 
+    selectedSport === 'All Sports' || lesson.sport === selectedSport
+  );
+
+  const filteredAcademies = academies.filter(academy =>
+    selectedSport === 'All Sports' || academy.sport === selectedSport
+  );
+
+
   return (
     <div className="flex flex-col gap-8">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2">
-          <Trophy className="h-8 w-8 text-primary" />
-          Sports Dashboard
-        </h1>
-        <p className="text-muted-foreground">
-          Your child's gateway to athletic excellence.
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2">
+            <Trophy className="h-8 w-8 text-primary" />
+            Sports Dashboard
+          </h1>
+          <p className="text-muted-foreground">
+            Your child's gateway to athletic excellence.
+          </p>
+        </div>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline" className="w-full sm:w-48">
+              {selectedSport}
+              <ChevronDown className="ml-auto h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56">
+            <DropdownMenuLabel>Select a Sport</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuRadioGroup value={selectedSport} onValueChange={setSelectedSport}>
+              {allSports.map(sport => (
+                <DropdownMenuRadioItem key={sport} value={sport}>{sport}</DropdownMenuRadioItem>
+              ))}
+            </DropdownMenuRadioGroup>
+          </DropdownMenuContent>
+        </DropdownMenu>
       </div>
       
       <div className="grid gap-8 lg:grid-cols-3">
@@ -105,7 +198,7 @@ export default function SportsPage() {
                     <CardDescription>Beginner to advanced tutorials by experts.</CardDescription>
                 </CardHeader>
                 <CardContent className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    {videoLessons.map(lesson => (
+                    {filteredLessons.length > 0 ? filteredLessons.map(lesson => (
                         <div key={lesson.title} className="relative group overflow-hidden rounded-lg">
                              <Image
                                 src={lesson.image}
@@ -118,12 +211,16 @@ export default function SportsPage() {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4">
                                 <Badge className="w-fit mb-2">{lesson.sport}</Badge>
                                 <h3 className="font-semibold text-white text-lg">{lesson.title}</h3>
-                                <Button variant="secondary" size="sm" className="mt-2 w-fit">
-                                    <PlayCircle className="mr-2 h-4 w-4"/> Watch Now
-                                </Button>
+                                <Link href="/dashboard/streaming" passHref>
+                                  <Button variant="secondary" size="sm" className="mt-2 w-fit">
+                                      <PlayCircle className="mr-2 h-4 w-4"/> Watch Now
+                                  </Button>
+                                </Link>
                             </div>
                         </div>
-                    ))}
+                    )) : (
+                      <p className="text-muted-foreground col-span-full text-center py-8">No video lessons available for {selectedSport}.</p>
+                    )}
                 </CardContent>
             </Card>
 
@@ -199,7 +296,7 @@ export default function SportsPage() {
             <CardDescription>Find certified coaches and professional training programs.</CardDescription>
           </CardHeader>
           <CardContent className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {academies.map((academy) => (
+            {filteredAcademies.length > 0 ? filteredAcademies.map((academy) => (
               <Card key={academy.name} className="flex flex-col overflow-hidden">
                 <Image
                   src={academy.image}
@@ -217,10 +314,13 @@ export default function SportsPage() {
                   <Button>View Details & Book Class</Button>
                 </CardContent>
               </Card>
-            ))}
+            )) : (
+              <p className="text-muted-foreground col-span-full text-center py-8">No academies available for {selectedSport}.</p>
+            )}
           </CardContent>
         </Card>
     </div>
   );
 }
 
+    
