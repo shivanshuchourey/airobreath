@@ -27,6 +27,7 @@ import {
   Apple,
   TrendingUp,
   Goal,
+  Edit,
 } from "lucide-react";
 import React from "react";
 import {
@@ -72,6 +73,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from "@/components/ui/chart";
+import Link from "next/link";
 
 const performanceData = [
   { month: "Jan", stamina: 75, strength: 65, speed: 70 },
@@ -122,14 +124,22 @@ export default function FitnessScorePage() {
 
   return (
     <div className="flex flex-col gap-8">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2">
-          <TrendingUp className="h-8 w-8 text-primary" />
-          Fitness Score & Performance
-        </h1>
-        <p className="text-muted-foreground">
-          A complete overview of your child's athletic journey.
-        </p>
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+        <div>
+            <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2">
+            <TrendingUp className="h-8 w-8 text-primary" />
+            Fitness Score & Performance
+            </h1>
+            <p className="text-muted-foreground">
+            A complete overview of your child's athletic journey.
+            </p>
+        </div>
+        <Link href="/dashboard/profile">
+            <Button variant="outline">
+                <Edit className="mr-2 h-4 w-4" />
+                Edit Student Profile
+            </Button>
+        </Link>
       </div>
 
       <div className="grid gap-8 lg:grid-cols-3">
@@ -305,3 +315,4 @@ export default function FitnessScorePage() {
   );
 }
 
+    

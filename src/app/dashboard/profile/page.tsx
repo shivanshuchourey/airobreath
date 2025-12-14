@@ -42,6 +42,7 @@ export default function ProfilePage() {
     weight: "36",
     medicalNotes: "Mild dust allergy.",
     sportsPreference: "Soccer, Tennis",
+    injuryReports: "No injuries reported.",
     avatar: "https://placehold.co/128x128.png",
   });
 
@@ -102,7 +103,7 @@ export default function ProfilePage() {
             </div>
             <div className="text-center">
                 <h2 className="text-2xl font-bold">{profileData.fullName}</h2>
-                <p className="text-muted-foreground">{profileData.email}</p>
+                <p className="text-muted-foreground">{profileData.schoolId}</p>
             </div>
           </CardContent>
         </Card>
@@ -217,8 +218,8 @@ export default function ProfilePage() {
               <Input id="sportsPreference" placeholder="Which sport does the child want to learn?" value={profileData.sportsPreference} onChange={handleInputChange} />
             </div>
              <div className="grid gap-2">
-              <Label>Injury Reports</Label>
-              <Textarea placeholder="No injuries reported." readOnly className="bg-secondary" />
+              <Label htmlFor="injuryReports">Injury Reports</Label>
+              <Textarea id="injuryReports" placeholder="Log any injuries here..." value={profileData.injuryReports} onChange={handleInputChange} />
             </div>
           </CardContent>
         </Card>
