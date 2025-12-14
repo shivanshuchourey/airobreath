@@ -139,7 +139,7 @@ export default function DashboardLayout({
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
-        <div className="w-full max-w-md mx-auto p-4 md:p-6 lg:p-8">
+        <div className="p-4 sm:p-6 lg:p-8">
           <header className="flex items-center justify-between md:hidden mb-4">
              <Link href="/dashboard" className="flex items-center gap-2">
                 <RainbowSchoolLogo className="w-7 h-7 text-accent" />
