@@ -23,6 +23,7 @@ import {
   HelpCircle,
   Info,
   UserPlus,
+  TrendingUp,
 } from "lucide-react";
 
 import {
@@ -56,6 +57,7 @@ const navItems = [
   { href: "/dashboard/content-filter", icon: Filter, label: "Content Filter" },
   { href: "/dashboard/games", icon: Gamepad2, label: "Games" },
   { href: "/dashboard/sports", icon: Trophy, label: "Sports" },
+  { href: "/dashboard/fitness-score", icon: TrendingUp, label: "Fitness Score" },
   { href: "/dashboard/arts", icon: Paintbrush, label: "Arts" },
   { href: "/dashboard/music", icon: Music, label: "Music" },
 ];
