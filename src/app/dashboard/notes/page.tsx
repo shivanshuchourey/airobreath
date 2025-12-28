@@ -1,3 +1,4 @@
+
 import { NoteGenerator } from "@/components/note-generator";
 import {
   Card,
