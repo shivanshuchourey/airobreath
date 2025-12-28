@@ -1,4 +1,5 @@
 
+
 import Link from 'next/link';
 import {
   LayoutDashboard,
@@ -17,7 +18,16 @@ import {
   FolderClock,
   HeartPulse,
 } from 'lucide-react';
-import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import { Button } from '@/components/ui/button';
 
 const features = [
   {
@@ -106,6 +116,18 @@ const features = [
   },
 ];
 
+const stories = [
+  { name: "Coach Sarah", avatar: "https://placehold.co/80x80.png", aiHint: "person woman" },
+  { name: "Alex", avatar: "https://placehold.co/80x80.png", aiHint: "person boy" },
+  { name: "Soccer Team", avatar: "https://placehold.co/80x80.png", aiHint: "people group" },
+  { name: "Yoga Club", avatar: "https://placehold.co/80x80.png", aiHint: "people group" },
+  { name: "Mr. Alan", avatar: "https://placehold.co/80x80.png", aiHint: "person man" },
+  { name: "Ms. Brie", avatar: "https://placehold.co/80x80.png", aiHint: "person woman" },
+  { name: "Art Class", avatar: "https://placehold.co/80x80.png", aiHint: "art supplies" },
+  { name: "Music School", avatar: "https://placehold.co/80x80.png", aiHint: "music notes" },
+  { name: "FitKidz", avatar: "https://placehold.co/80x80.png", aiHint: "running shoe" },
+]
+
 export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-8">
@@ -115,6 +137,33 @@ export default function DashboardPage() {
           Play, Grow, and Learn. Here's everything you need at a glance.
         </p>
       </div>
+
+       <Card>
+        <CardHeader>
+          <CardTitle className="text-xl font-headline">Recent Stories</CardTitle>
+        </CardHeader>
+        <CardContent>
+           <Carousel opts={{ align: "start", dragFree: true }}>
+            <CarouselContent>
+              {stories.map((story, index) => (
+                <CarouselItem key={index} className="basis-auto">
+                  <div className="flex flex-col items-center gap-2">
+                    <Button variant="ghost" className="rounded-full w-20 h-20 p-0.5 border-2 border-primary hover:border-accent transition-colors">
+                      <Avatar className="w-full h-full">
+                        <AvatarImage src={story.avatar} alt={story.name} data-ai-hint={story.aiHint} />
+                        <AvatarFallback>{story.name.charAt(0)}</AvatarFallback>
+                      </Avatar>
+                    </Button>
+                    <p className="text-xs font-medium truncate w-20 text-center">{story.name}</p>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="hidden md:flex" />
+            <CarouselNext className="hidden md:flex" />
+          </Carousel>
+        </CardContent>
+      </Card>
 
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {features.map((feature) => (
