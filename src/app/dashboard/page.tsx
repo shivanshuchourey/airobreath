@@ -175,7 +175,7 @@ export default function DashboardPage() {
                 />
                 <YAxis />
                 <Tooltip content={<ChartTooltipContent />} />
-                <Legend content={<></>} />
+                <Legend />
                 <Bar
                   dataKey="stamina"
                   fill="var(--color-stamina)"
