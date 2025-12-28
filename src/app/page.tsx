@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { FitKidzLogo } from "@/components/icons";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -30,9 +31,16 @@ export default function LoginPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
+      <div className="flex flex-col items-center gap-4 mb-8">
+        <FitKidzLogo className="w-20 h-20 text-primary" />
+        <div className="text-center">
+          <h1 className="text-4xl font-headline text-primary">FitKidz</h1>
+          <p className="text-muted-foreground">Play, Grow, and Learn</p>
+        </div>
+      </div>
       <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle className="text-2xl">Login</CardTitle>
+          <CardTitle className="text-2xl font-headline">Login</CardTitle>
           <CardDescription>
             Enter your email below to login to your account.
           </CardDescription>

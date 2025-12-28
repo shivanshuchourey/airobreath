@@ -79,7 +79,7 @@ export default function DashboardLayout({
         <SidebarHeader>
           <div className="flex items-center gap-2">
             <FitKidzLogo className="w-8 h-8" />
-            <span className="text-lg font-semibold">FitKidz</span>
+            <span className="text-lg font-headline">FitKidz</span>
           </div>
         </SidebarHeader>
         <SidebarContent>
@@ -140,8 +140,8 @@ export default function DashboardLayout({
         <div className="p-4 sm:p-6 lg:p-8">
           <header className="flex items-center justify-between md:hidden mb-4">
              <Link href="/dashboard" className="flex items-center gap-2">
-                <FitKidzLogo className="w-7 h-7 text-accent" />
-                <span className="text-md font-semibold">FitKidz</span>
+                <FitKidzLogo className="w-7 h-7 text-primary" />
+                <span className="text-md font-headline">FitKidz</span>
               </Link>
               <SidebarTrigger />
           </header>

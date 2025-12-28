@@ -1,13 +1,17 @@
 import type { Metadata } from 'next';
-import { PT_Sans } from 'next/font/google';
+import { Inter, Lilita_One } from 'next/font/google';
 import { Toaster } from "@/components/ui/toaster"
 import './globals.css';
 
-const ptSans = PT_Sans({
+const inter = Inter({
   subsets: ['latin'],
-  weight: ['400', '700'],
-  style: ['normal', 'italic'],
-  variable: '--font-pt-sans',
+  variable: '--font-inter',
+});
+
+const lilitaOne = Lilita_One({
+  subsets: ['latin'],
+  weight: ['400'],
+  variable: '--font-lilita-one',
 });
 
 export const metadata: Metadata = {
@@ -22,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${ptSans.variable} font-body antialiased`}>
+      <body className={`${inter.variable} ${lilitaOne.variable} font-body antialiased`}>
         {children}
         <Toaster />
       </body>

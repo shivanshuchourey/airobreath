@@ -133,7 +133,7 @@ export default function FitnessPage() {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2">
+        <h1 className="text-3xl font-headline tracking-tight flex items-center gap-2">
           <Trophy className="h-8 w-8" />
           Fitness & Performance
         </h1>
@@ -160,7 +160,7 @@ export default function FitnessPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Performance Analytics</CardTitle>
+          <CardTitle className="font-headline">Performance Analytics</CardTitle>
           <CardDescription>
             Monthly progress in key fitness areas.
           </CardDescription>
@@ -198,7 +198,7 @@ export default function FitnessPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Ongoing Challenges</CardTitle>
+          <CardTitle className="font-headline">Ongoing Challenges</CardTitle>
         </CardHeader>
         <CardContent className="space-y-4">
           {challenges.map((challenge) => (
@@ -218,7 +218,7 @@ export default function FitnessPage() {
 
       <Card>
         <CardHeader>
-          <CardTitle>Activity Feed</CardTitle>
+          <CardTitle className="font-headline">Activity Feed</CardTitle>
         </CardHeader>
         <CardContent>
           <ul className="space-y-4">

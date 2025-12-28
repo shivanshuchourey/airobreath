@@ -110,7 +110,7 @@ export default function DashboardPage() {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Welcome to FitKidz</h1>
+        <h1 className="text-3xl font-headline tracking-tight">Welcome to FitKidz</h1>
         <p className="text-muted-foreground">
           Play, Grow, and Learn. Here's everything you need at a glance.
         </p>
@@ -121,11 +121,11 @@ export default function DashboardPage() {
           <Link href={feature.href} key={feature.title}>
             <Card className="h-full hover:bg-muted/50 transition-colors hover:shadow-md">
               <CardHeader className="flex flex-row items-center gap-4">
-                <div className="p-3 bg-accent/10 rounded-lg border border-accent/20 text-accent">
+                <div className="p-3 bg-primary/10 rounded-lg border border-primary/20 text-primary">
                    <feature.icon className="h-6 w-6" />
                 </div>
                 <div>
-                  <CardTitle className="text-lg mb-1">{feature.title}</CardTitle>
+                  <CardTitle className="text-lg font-headline mb-1">{feature.title}</CardTitle>
                   <CardDescription className="text-sm">{feature.description}</CardDescription>
                 </div>
               </CardHeader>
