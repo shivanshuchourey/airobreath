@@ -11,8 +11,8 @@ const ptSans = PT_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'FitKidz - PLAY LEARN & GROW',
-  description: 'FitKidz: The Future of Learning, Today. Live classroom streaming, AI-powered tools, and seamless parent-teacher communication.',
+  title: 'FitKidz - Play, Grow, and Learn',
+  description: 'Play, Grow, and Learn with FitKidz. The Future of Learning, Today. Live classroom streaming, AI-powered tools, and seamless parent-teacher communication.',
 };
 
 export default function RootLayout({
