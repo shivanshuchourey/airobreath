@@ -37,7 +37,7 @@ import {
   SidebarTrigger,
   SidebarSeparator,
 } from "@/components/ui/sidebar";
-import { RainbowSchoolLogo } from "@/components/icons";
+import { FitKidzLogo } from "@/components/icons";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
@@ -76,8 +76,8 @@ export default function DashboardLayout({
       <Sidebar>
         <SidebarHeader>
           <div className="flex items-center gap-2">
-            <RainbowSchoolLogo className="w-8 h-8" />
-            <span className="text-lg font-semibold">The Rainbow School</span>
+            <FitKidzLogo className="w-8 h-8" />
+            <span className="text-lg font-semibold">FitKidz</span>
           </div>
         </SidebarHeader>
         <SidebarContent>
@@ -135,11 +135,11 @@ export default function DashboardLayout({
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
-        <div className="p-4 sm:p-6 lg:p-8 max-w-md mx-auto">
+        <div className="p-4 sm:p-6 lg:p-8">
           <header className="flex items-center justify-between md:hidden mb-4">
              <Link href="/dashboard" className="flex items-center gap-2">
-                <RainbowSchoolLogo className="w-7 h-7 text-accent" />
-                <span className="text-md font-semibold">The Rainbow School</span>
+                <FitKidzLogo className="w-7 h-7 text-accent" />
+                <span className="text-md font-semibold">FitKidz</span>
               </Link>
               <SidebarTrigger />
           </header>

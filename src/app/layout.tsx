@@ -11,8 +11,8 @@ const ptSans = PT_Sans({
 });
 
 export const metadata: Metadata = {
-  title: 'The Rainbow School - Education & Safety Redefined',
-  description: 'The Rainbow School: The Future of Learning, Today. Live classroom streaming, AI-powered tools, and seamless parent-teacher communication.',
+  title: 'FitKidz - PLAY LEARN & GROW',
+  description: 'FitKidz: The Future of Learning, Today. Live classroom streaming, AI-powered tools, and seamless parent-teacher communication.',
 };
 
 export default function RootLayout({
