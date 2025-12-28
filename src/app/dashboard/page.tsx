@@ -2,6 +2,13 @@
 
 import Link from 'next/link';
 import {
+  AIStudyNotesIcon,
+  ClassRecordingsIcon,
+  HomeworkIcon,
+  ParentTeacherChatIcon,
+  TuitionClassesIcon,
+} from '@/components/feature-icons';
+import {
   LayoutDashboard,
   Video,
   Clipboard,
@@ -40,7 +47,7 @@ const features = [
     title: 'AI Notes',
     description: 'Generate study notes from class recordings.',
     href: '/dashboard/notes',
-    icon: BotMessageSquare,
+    icon: AIStudyNotesIcon,
   },
   {
     title: 'Live Stream',
@@ -52,19 +59,19 @@ const features = [
     title: 'Class Recordings',
     description: 'Review past lessons and catch up on missed classes.',
     href: '/dashboard/recordings',
-    icon: FolderClock,
+    icon: ClassRecordingsIcon,
   },
   {
     title: 'Homework',
     description: 'View and manage all homework assignments.',
     href: '/dashboard/homework',
-    icon: Clipboard,
+    icon: HomeworkIcon,
   },
   {
     title: 'Parent-Teacher Chat',
     description: 'Communicate directly with school staff.',
     href: '/dashboard/chat',
-    icon: MessageSquare,
+    icon: ParentTeacherChatIcon,
   },
    {
     title: 'Educational Videos',
@@ -112,7 +119,7 @@ const features = [
     title: 'Tuition Classes',
     description: 'Enroll in extra classes for academic support.',
     href: '/dashboard/tuition',
-    icon: BookOpenCheck,
+    icon: TuitionClassesIcon,
   },
 ];
 
