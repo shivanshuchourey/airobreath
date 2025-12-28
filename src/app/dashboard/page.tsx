@@ -161,7 +161,7 @@ export default function DashboardPage() {
                 <CardTitle className="flex items-center gap-2"><Heart />Recent Stories</CardTitle>
                 <CardDescription>A look back at your child's recent stories.</CardDescription>
             </CardHeader>
-            <CardContent className="flex items-center gap-4 overflow-x-auto pb-4">
+            <CardContent className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8 gap-4">
                  <div className="flex flex-col items-center gap-2 flex-shrink-0">
                     <button className="h-16 w-16 rounded-full bg-muted flex items-center justify-center ring-2 ring-dashed ring-muted-foreground hover:bg-secondary transition-colors">
                         <Plus className="h-8 w-8 text-muted-foreground" />
@@ -217,9 +217,9 @@ export default function DashboardPage() {
                 </Card>
             </Link>
 
-            <div className="flex gap-4 overflow-x-auto pb-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-4">
                 {features.map((feature) => (
-                <Link href={feature.href} key={feature.title} className="group flex-shrink-0 w-28">
+                <Link href={feature.href} key={feature.title} className="group">
                     <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                     <CardContent className="p-3 flex flex-col items-center text-center">
                         <div className={`p-2.5 rounded-full bg-gradient-to-br ${feature.color}`}>
