@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-export default function FitnessScoreLayout({
+export default function FitnessLayout({
     children,
 }: {
     children: React.ReactNode;

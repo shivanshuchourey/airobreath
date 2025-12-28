@@ -44,7 +44,8 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { href: "/dashboard", icon: Trophy, label: "Fitness & Performance" },
+  { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
+  { href: "/dashboard/fitness", icon: Trophy, label: "Fitness & Performance" },
   { href: "/dashboard/registration", icon: UserPlus, label: "Registration" },
   { href: "/dashboard/streaming", icon: Video, label: "Live Stream" },
   { href: "/dashboard/recordings", icon: FolderClock, label: "Recordings" },
@@ -89,7 +90,7 @@ export default function DashboardLayout({
               <SidebarMenuItem key={item.href}>
                 <SidebarMenuButton
                   asChild
-                  isActive={pathname.startsWith(item.href) && (item.href === "/dashboard" ? pathname === "/dashboard" : true)}
+                  isActive={pathname === item.href}
                   tooltip={{ children: item.label }}
                 >
                   <Link href={item.href}>
