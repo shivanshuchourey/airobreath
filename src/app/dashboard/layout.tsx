@@ -22,6 +22,7 @@ import {
   User,
   HelpCircle,
   Info,
+  HeartPulse,
 } from "lucide-react";
 
 import {
@@ -43,6 +44,7 @@ import { Button } from "@/components/ui/button";
 
 const navItems = [
   { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
+  { href: "/dashboard/fitness", icon: Trophy, label: "Fitness" },
   { href: "/dashboard/streaming", icon: Video, label: "Live Stream" },
   { href: "/dashboard/recordings", icon: FolderClock, label: "Recordings" },
   { href: "/dashboard/notes", icon: BotMessageSquare, label: "AI Notes" },
@@ -53,13 +55,13 @@ const navItems = [
   { href: "/dashboard/screentime", icon: Hourglass, label: "Screen Time" },
   { href: "/dashboard/content-filter", icon: Filter, label: "Content Filter" },
   { href: "/dashboard/games", icon: Gamepad2, label: "Games" },
-  { href: "/dashboard/sports", icon: Trophy, label: "Sports" },
+  { href: "/dashboard/sports", icon: HeartPulse, label: "Sports" },
   { href: "/dashboard/arts", icon: Paintbrush, label: "Arts" },
   { href: "/dashboard/music", icon: Music, label: "Music" },
 ];
 
 const secondaryNavItems = [
-  { href: "/dashboard", icon: User, label: "Edit Profile" },
+  { href: "/dashboard/profile", icon: User, label: "Edit Profile" },
   { href: "/dashboard", icon: HelpCircle, label: "Help Center" },
   { href: "/dashboard", icon: Info, label: "About Us" },
 ];

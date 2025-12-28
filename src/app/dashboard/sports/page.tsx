@@ -1,6 +1,6 @@
 
 import Image from "next/image";
-import { Trophy, Football, PersonStanding } from "lucide-react";
+import { HeartPulse, Football, PersonStanding } from "lucide-react";
 import {
   Card,
   CardContent,
@@ -36,7 +36,7 @@ export default function SportsPage() {
     <div className="flex flex-col gap-8">
       <div>
         <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2">
-          <Trophy className="h-8 w-8" />
+          <HeartPulse className="h-8 w-8" />
           Sports Academies
         </h1>
         <p className="text-muted-foreground">

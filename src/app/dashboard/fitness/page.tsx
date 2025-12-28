@@ -129,11 +129,14 @@ const challenges = [
   },
 ];
 
-export default function DashboardPage() {
+export default function FitnessPage() {
   return (
     <div className="flex flex-col gap-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight">Parent Dashboard</h1>
+        <h1 className="text-3xl font-bold tracking-tight flex items-center gap-2">
+          <Trophy className="h-8 w-8" />
+          Fitness & Performance
+        </h1>
         <p className="text-muted-foreground">
           Welcome back, Jane! Here's a look at Alex's progress.
         </p>
@@ -175,7 +178,7 @@ export default function DashboardPage() {
                 />
                 <YAxis />
                 <Tooltip content={<ChartTooltipContent />} />
-                <Legend content={<></>} />
+                <Legend />
                 <Bar
                   dataKey="stamina"
                   fill="var(--color-stamina)"
