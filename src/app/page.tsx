@@ -17,7 +17,6 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { RainbowSchoolLogo } from "@/components/icons";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -31,18 +30,11 @@ export default function LoginPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-background p-4">
-      <div className="flex flex-col items-center text-center mb-8">
-        <RainbowSchoolLogo className="h-20 w-auto" />
-        <h1 className="text-4xl font-bold font-headline mt-4 text-foreground">
-          RAINBOW SCHOOL
-        </h1>
-        <p className="text-muted-foreground tracking-widest">PLAY LEARN & GROW</p>
-      </div>
-      <Card className="w-full max-w-sm shadow-xl">
+      <Card className="w-full max-w-sm">
         <CardHeader>
-          <CardTitle className="text-2xl">Welcome Back</CardTitle>
+          <CardTitle className="text-2xl">Login</CardTitle>
           <CardDescription>
-            Enter your credentials to access your dashboard.
+            Enter your email below to login to your account.
           </CardDescription>
         </CardHeader>
         <form onSubmit={handleLogin}>
@@ -68,16 +60,10 @@ export default function LoginPage() {
               </div>
             </div>
           </CardContent>
-          <CardFooter className="flex-col items-stretch gap-4">
-            <Button type="submit" className="w-full bg-accent hover:bg-accent/90 text-accent-foreground">
+          <CardFooter>
+            <Button type="submit" className="w-full">
               Sign In
             </Button>
-            <div className="text-center text-sm">
-                New to The Rainbow School?{' '}
-                <Link href="/dashboard/registration" className="underline text-accent">
-                    Sign up for a new account
-                </Link>
-            </div>
           </CardFooter>
         </form>
       </Card>

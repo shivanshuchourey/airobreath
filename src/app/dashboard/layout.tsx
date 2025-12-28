@@ -22,8 +22,6 @@ import {
   User,
   HelpCircle,
   Info,
-  UserPlus,
-  TrendingUp,
 } from "lucide-react";
 
 import {
@@ -44,8 +42,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 
 const navItems = [
-  { href: "/dashboard", icon: Trophy, label: "Fitness & Performance" },
-  { href: "/dashboard/registration", icon: UserPlus, label: "Registration" },
+  { href: "/dashboard", icon: LayoutDashboard, label: "Dashboard" },
   { href: "/dashboard/streaming", icon: Video, label: "Live Stream" },
   { href: "/dashboard/recordings", icon: FolderClock, label: "Recordings" },
   { href: "/dashboard/notes", icon: BotMessageSquare, label: "AI Notes" },
@@ -62,7 +59,7 @@ const navItems = [
 ];
 
 const secondaryNavItems = [
-  { href: "/dashboard/profile", icon: User, label: "Edit Profile" },
+  { href: "/dashboard", icon: User, label: "Edit Profile" },
   { href: "/dashboard", icon: HelpCircle, label: "Help Center" },
   { href: "/dashboard", icon: Info, label: "About Us" },
 ];
@@ -80,7 +77,7 @@ export default function DashboardLayout({
         <SidebarHeader>
           <div className="flex items-center gap-2">
             <RainbowSchoolLogo className="w-8 h-8" />
-            <span className="text-lg font-semibold">Rainbow School</span>
+            <span className="text-lg font-semibold">The Rainbow School</span>
           </div>
         </SidebarHeader>
         <SidebarContent>
@@ -138,11 +135,11 @@ export default function DashboardLayout({
         </SidebarFooter>
       </Sidebar>
       <SidebarInset>
-        <div className="p-4 sm:p-6 lg:p-8">
+        <div className="p-4 sm:p-6 lg:p-8 max-w-md mx-auto">
           <header className="flex items-center justify-between md:hidden mb-4">
              <Link href="/dashboard" className="flex items-center gap-2">
                 <RainbowSchoolLogo className="w-7 h-7 text-accent" />
-                <span className="text-md font-semibold">Rainbow School</span>
+                <span className="text-md font-semibold">The Rainbow School</span>
               </Link>
               <SidebarTrigger />
           </header>
