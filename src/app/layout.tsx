@@ -1,16 +1,17 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { PT_Sans } from 'next/font/google';
 import { Toaster } from "@/components/ui/toaster"
 import './globals.css';
 
-const inter = Inter({
+const ptSans = PT_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  weight: ['400', '700'],
+  variable: '--font-pt-sans',
 });
 
 export const metadata: Metadata = {
   title: 'Airobreath',
-  description: 'Welcome to Airobreath',
+  description: 'Breathe clean, live well.',
 };
 
 export default function RootLayout({
@@ -20,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} font-sans antialiased`}>
+      <body className={`${ptSans.variable} font-sans antialiased`}>
         {children}
         <Toaster />
       </body>
