@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
-import { Fingerprint, Lock, Mail, Smartphone, User } from 'lucide-react';
+import { Fingerprint, Mail, Smartphone } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -17,7 +17,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { AppleIcon, GoogleIcon } from '@/components/icons';
-import { Separator } from '@/components/ui/separator';
+import placeholderImages from '@/lib/placeholder-images.json';
 
 export default function LoginPage() {
   const router = useRouter();
@@ -26,16 +26,16 @@ export default function LoginPage() {
     // In a real app, you'd perform authentication here
     router.push('/dashboard');
   };
-  
+
   return (
     <div className="w-full lg:grid lg:min-h-screen lg:grid-cols-2">
       <div className="hidden bg-muted lg:block">
         <Image
-          src="https://picsum.photos/seed/airobreath-login/1200/1800"
+          src={`https://picsum.photos/seed/${placeholderImages.login.seed}/${placeholderImages.login.width}/${placeholderImages.login.height}`}
           alt="Airobreath Hydroponic System"
-          width="1200"
-          height="1800"
-          data-ai-hint="hydroponic system"
+          width={placeholderImages.login.width}
+          height={placeholderImages.login.height}
+          data-ai-hint={placeholderImages.login.hint}
           className="h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
         />
       </div>
@@ -61,27 +61,48 @@ export default function LoginPage() {
                 <TabsContent value="email" className="space-y-4 pt-4">
                   <div className="grid gap-2">
                     <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" placeholder="m@example.com" required />
+                    <Input
+                      id="email"
+                      type="email"
+                      placeholder="m@example.com"
+                      required
+                    />
                   </div>
                   <div className="grid gap-2">
                     <div className="flex items-center">
                       <Label htmlFor="password">Password</Label>
-                      <Link href="#" className="ml-auto inline-block text-sm underline">
+                      <Link
+                        href="#"
+                        className="ml-auto inline-block text-sm underline"
+                      >
                         Forgot password?
                       </Link>
                     </div>
                     <Input id="password" type="password" required />
                   </div>
-                  <Button type="submit" className="w-full" onClick={handleSignIn}>
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    onClick={handleSignIn}
+                  >
                     Sign In
                   </Button>
                 </TabsContent>
                 <TabsContent value="phone" className="space-y-4 pt-4">
                   <div className="grid gap-2">
                     <Label htmlFor="phone">Phone Number</Label>
-                    <Input id="phone" type="tel" placeholder="+1 (555) 000-0000" required />
+                    <Input
+                      id="phone"
+                      type="tel"
+                      placeholder="+1 (555) 000-0000"
+                      required
+                    />
                   </div>
-                  <Button type="submit" className="w-full" onClick={handleSignIn}>
+                  <Button
+                    type="submit"
+                    className="w-full"
+                    onClick={handleSignIn}
+                  >
                     Send OTP
                   </Button>
                 </TabsContent>
@@ -116,7 +137,7 @@ export default function LoginPage() {
               </div>
             </CardContent>
           </Card>
-          
+
           <div className="mt-4 text-center text-sm text-muted-foreground">
             <p>Premium users can use biometrics.</p>
             <Button variant="ghost" className="mt-2" onClick={handleSignIn}>

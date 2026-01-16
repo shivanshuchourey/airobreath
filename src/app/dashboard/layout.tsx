@@ -1,13 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import {
   Bell,
   Home,
   LineChart,
-  Package2,
   Settings,
-  Users,
   Sprout,
   Droplets,
   Menu,
@@ -15,7 +14,6 @@ import {
 import { useUser } from '@/hooks/use-user';
 import Image from 'next/image';
 
-import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -41,19 +39,28 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const { user } = useUser();
+  const pathname = usePathname();
 
   const navLinks = (
     <>
       <Link
         href="/dashboard"
-        className="flex items-center gap-3 rounded-lg bg-muted px-3 py-2 text-primary transition-all hover:text-primary"
+        className={`flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary ${
+          pathname === '/dashboard'
+            ? 'bg-muted text-primary'
+            : 'text-muted-foreground'
+        }`}
       >
         <Home className="h-4 w-4" />
         Dashboard
       </Link>
       <Link
-        href="#"
-        className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
+        href="/dashboard/my-plants"
+        className={`flex items-center gap-3 rounded-lg px-3 py-2 transition-all hover:text-primary ${
+          pathname === '/dashboard/my-plants'
+            ? 'bg-muted text-primary'
+            : 'text-muted-foreground'
+        }`}
       >
         <Sprout className="h-4 w-4" />
         My Plants
@@ -72,7 +79,7 @@ export default function DashboardLayout({
         <Droplets className="h-4 w-4" />
         Water & Nutrients
       </Link>
-       <Link
+      <Link
         href="#"
         className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all hover:text-primary"
       >
@@ -165,7 +172,9 @@ export default function DashboardLayout({
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
-              <DropdownMenuLabel>{user?.displayName || 'My Account'}</DropdownMenuLabel>
+              <DropdownMenuLabel>
+                {user?.displayName || 'My Account'}
+              </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>Settings</DropdownMenuItem>
               <DropdownMenuItem>Support</DropdownMenuItem>

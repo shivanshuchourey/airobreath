@@ -1,0 +1,44 @@
+{
+  "login": {
+    "seed": "airobreath-login",
+    "width": 1200,
+    "height": 1800,
+    "hint": "hydroponic system"
+  },
+  "hero": {
+    "seed": "airobreath-hero",
+    "width": 550,
+    "height": 550,
+    "hint": "hydroponic tower"
+  },
+  "plants": [
+    {
+      "name": "Basil",
+      "seed": "basil-plant",
+      "width": 600,
+      "height": 400,
+      "hint": "basil plant"
+    },
+    {
+      "name": "Mint",
+      "seed": "mint-plant",
+      "width": 600,
+      "height": 400,
+      "hint": "mint plant"
+    },
+    {
+      "name": "Lettuce",
+      "seed": "lettuce-plant",
+      "width": 600,
+      "height": 400,
+      "hint": "lettuce plant"
+    },
+    {
+      "name": "Cherry Tomato",
+      "seed": "tomato-plant",
+      "width": 600,
+      "height": 400,
+      "hint": "tomato plant"
+    }
+  ]
+}

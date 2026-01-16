@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { AirobreathIcon } from "@/components/icons";
 import Link from "next/link";
 import * as React from "react";
+import Image from "next/image";
+import placeholderImages from "@/lib/placeholder-images.json";
 
 
 export default function HomePage() {
@@ -48,13 +50,13 @@ export default function HomePage() {
                 </Button>
               </div>
             </div>
-            <img
+            <Image
               alt="Hero"
               className="mx-auto aspect-square overflow-hidden rounded-xl object-cover sm:w-full lg:order-last"
-              data-ai-hint="hydroponic tower"
-              height="550"
-              src="https://picsum.photos/seed/1/550/550"
-              width="550"
+              data-ai-hint={placeholderImages.hero.hint}
+              height={placeholderImages.hero.height}
+              src={`https://picsum.photos/seed/${placeholderImages.hero.seed}/${placeholderImages.hero.width}/${placeholderImages.hero.height}`}
+              width={placeholderImages.hero.width}
             />
           </div>
         </div>
