@@ -45,15 +45,10 @@ export default function MyPlantsPage() {
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {plants.map((plant) => (
           <Card key={plant.id} className="flex flex-col overflow-hidden">
-            <div className="relative aspect-video">
-              <Image
-                src={`https://picsum.photos/seed/${plant.image.seed}/${plant.image.width}/${plant.image.height}`}
-                alt={plant.name}
-                fill
-                data-ai-hint={plant.image.hint}
-                className="object-cover"
-              />
-            </div>
+            <div
+              className="relative aspect-video bg-muted"
+              data-ai-hint={plant.image.hint}
+            />
             <CardHeader>
               <CardTitle>{plant.name}</CardTitle>
               <CardDescription className="italic">
