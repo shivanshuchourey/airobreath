@@ -41,24 +41,25 @@ export function AirobreathIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
     <svg
       {...props}
+      viewBox="0 0 100 100"
       xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
     >
-      <path d="M12 12a5 5 0 0 1 5 5" />
-      <path d="M12 7a5 5 0 0 1 5 5" />
-      <path d="M12 12a5 5 0 0 0-5 5" />
-      <path d="M12 17a5 5 0 0 0-5-5" />
-      <path d="M2 12a10 10 0 0 1 10-10" />
-      <path d="M2 12a10 10 0 0 0 10 10" />
-      <path d="M22 12a10 10 0 0 0-10-10" />
-      <path d="M22 12a10 10 0 0 1-10 10" />
+      <defs>
+        <path id="top_arc" d="M 20,60 A 30 30 0 1 1 80 60" fill="none" />
+        <path id="bottom_arc" d="M 20,40 A 30 30 0 0 0 80 40" fill="none" />
+      </defs>
+      <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="2" />
+      <g fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+        <path d="M30 62 c 10 -15 30 -15 40 0" />
+        <path d="M25 50 c 12.5 -15 37.5 -15 50 0" />
+        <path d="M35 74 c 10 -15 30 -15 40 0" />
+      </g>
+      <text fill="currentColor" fontSize="12" fontWeight="bold" textAnchor="middle">
+        <textPath href="#top_arc" startOffset="50%">AIROBREATH</textPath>
+      </text>
+      <text fill="currentColor" fontSize="9" textAnchor="middle">
+        <textPath href="#bottom_arc" startOffset="50%">HEALTHY BREATHES</textPath>
+      </text>
     </svg>
   );
 }

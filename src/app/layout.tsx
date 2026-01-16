@@ -12,7 +12,7 @@ const ptSans = PT_Sans({
 
 export const metadata: Metadata = {
   title: 'Airobreath',
-  description: 'Breathe clean, live well.',
+  description: 'Healthy Breathes.',
 };
 
 export default function RootLayout({

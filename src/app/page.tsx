@@ -37,10 +37,10 @@ export default function HomePage() {
             <div className="flex flex-col justify-center space-y-4">
               <div className="space-y-2">
                 <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
-                  Breathe Clean, Live Smart
+                  Airobreath
                 </h1>
                 <p className="max-w-[600px] text-muted-foreground md:text-xl">
-                  Airobreath is a revolutionary hydroponic tower that purifies your air while adding a touch of nature to
+                  Healthy Breathes. A revolutionary hydroponic tower that purifies your air while adding a touch of nature to
                   your space.
                 </p>
               </div>
