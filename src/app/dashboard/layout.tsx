@@ -31,7 +31,13 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import { AirobreathIcon } from '@/components/icons';
-import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import {
+  Sheet,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 
 export default function DashboardLayout({
   children,
@@ -151,17 +157,23 @@ export default function DashboardLayout({
                 <span className="sr-only">Toggle navigation menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="flex flex-col">
-              <nav className="grid gap-2 text-lg font-medium">
-                <Link
-                  href="#"
-                  className="flex items-center gap-2 text-lg font-semibold"
-                >
-                  <AirobreathIcon className="h-6 w-6 text-primary" />
-                  <span className="sr-only">Airobreath</span>
-                </Link>
-                {navLinks}
-              </nav>
+            <SheetContent side="left" className="flex flex-col p-0">
+              <SheetHeader className="border-b px-6 py-4">
+                <SheetTitle>
+                  <Link
+                    href="/"
+                    className="flex items-center gap-2 text-lg font-semibold"
+                  >
+                    <AirobreathIcon className="h-6 w-6 text-primary" />
+                    <span className="">Airobreath</span>
+                  </Link>
+                </SheetTitle>
+              </SheetHeader>
+              <div className="flex-1 overflow-y-auto">
+                <nav className="grid gap-2 p-6 text-lg font-medium">
+                  {navLinks}
+                </nav>
+              </div>
             </SheetContent>
           </Sheet>
           <div className="w-full flex-1" />
