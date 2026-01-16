@@ -19,7 +19,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
       uid: '12345',
       email: 'premium.user@airobreath.com',
       displayName: 'Premium User',
-      photoURL: 'https://picsum.photos/seed/user/100/100',
+      photoURL: null,
       accountType: 'Premium Pro',
     };
 
