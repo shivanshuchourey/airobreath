@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter, Lilita_One } from 'next/font/google';
+import { Inter } from 'next/font/google';
 import { Toaster } from "@/components/ui/toaster"
 import './globals.css';
 
@@ -8,15 +8,9 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const lilitaOne = Lilita_One({
-  subsets: ['latin'],
-  weight: ['400'],
-  variable: '--font-lilita-one',
-});
-
 export const metadata: Metadata = {
-  title: 'FitKidz - Play, Grow, and Learn',
-  description: 'Play, Grow, and Learn with FitKidz. The Future of Learning, Today. Live classroom streaming, AI-powered tools, and seamless parent-teacher communication.',
+  title: 'Airobreath',
+  description: 'Welcome to Airobreath',
 };
 
 export default function RootLayout({
@@ -26,7 +20,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.variable} ${lilitaOne.variable} font-body antialiased`}>
+      <body className={`${inter.variable} font-sans antialiased`}>
         {children}
         <Toaster />
       </body>
