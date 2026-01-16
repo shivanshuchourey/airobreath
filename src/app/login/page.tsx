@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Fingerprint, Lock, Mail, Smartphone, User } from 'lucide-react';
@@ -20,6 +20,13 @@ import { AppleIcon, GoogleIcon } from '@/components/icons';
 import { Separator } from '@/components/ui/separator';
 
 export default function LoginPage() {
+  const router = useRouter();
+
+  const handleSignIn = () => {
+    // In a real app, you'd perform authentication here
+    router.push('/dashboard');
+  };
+  
   return (
     <div className="w-full lg:grid lg:min-h-screen lg:grid-cols-2">
       <div className="hidden bg-muted lg:block">
@@ -65,7 +72,7 @@ export default function LoginPage() {
                     </div>
                     <Input id="password" type="password" required />
                   </div>
-                  <Button type="submit" className="w-full">
+                  <Button type="submit" className="w-full" onClick={handleSignIn}>
                     Sign In
                   </Button>
                 </TabsContent>
@@ -74,7 +81,7 @@ export default function LoginPage() {
                     <Label htmlFor="phone">Phone Number</Label>
                     <Input id="phone" type="tel" placeholder="+1 (555) 000-0000" required />
                   </div>
-                  <Button type="submit" className="w-full">
+                  <Button type="submit" className="w-full" onClick={handleSignIn}>
                     Send OTP
                   </Button>
                 </TabsContent>
@@ -92,18 +99,18 @@ export default function LoginPage() {
               </div>
 
               <div className="grid grid-cols-2 gap-4">
-                <Button variant="outline">
+                <Button variant="outline" onClick={handleSignIn}>
                   <GoogleIcon className="mr-2 h-4 w-4" />
                   Google
                 </Button>
-                <Button variant="outline">
+                <Button variant="outline" onClick={handleSignIn}>
                   <AppleIcon className="mr-2 h-4 w-4" />
                   Apple
                 </Button>
               </div>
 
               <div className="mt-6 text-center text-sm">
-                <Link href="#" className="underline">
+                <Link href="/dashboard" className="underline">
                   Continue as Guest
                 </Link>
               </div>
@@ -112,7 +119,7 @@ export default function LoginPage() {
           
           <div className="mt-4 text-center text-sm text-muted-foreground">
             <p>Premium users can use biometrics.</p>
-            <Button variant="ghost" className="mt-2">
+            <Button variant="ghost" className="mt-2" onClick={handleSignIn}>
               <Fingerprint className="mr-2 h-4 w-4" />
               Sign in with Face ID / Fingerprint
             </Button>

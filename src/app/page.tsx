@@ -1,34 +1,8 @@
 
 import { Button } from "@/components/ui/button";
-import { MountainIcon } from "lucide-react";
+import { AirobreathIcon } from "@/components/icons";
 import Link from "next/link";
 import * as React from "react";
-
-function AirobreathIcon(props: React.SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      {...props}
-      xmlns="http://www.w3.org/2000/svg"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M12 12a5 5 0 0 1 5 5" />
-      <path d="M12 7a5 5 0 0 1 5 5" />
-      <path d="M12 12a5 5 0 0 0-5 5" />
-      <path d="M12 17a5 5 0 0 0-5-5" />
-      <path d="M2 12a10 10 0 0 1 10-10" />
-      <path d="M2 12a10 10 0 0 0 10 10" />
-      <path d="M22 12a10 10 0 0 0-10-10" />
-      <path d="M22 12a10 10 0 0 1-10 10" />
-    </svg>
-  );
-}
 
 
 export default function HomePage() {
